@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="shadow p-3 mb-5 bg-body rounded">
+	<form method="POST">
+		{{ form.hidden_tag() }}
+
+		{{ form.id.label(class="form-label") }}
+
+		{{ form.id(class="form-control") }}
+		<br/>
+
+		{{ form.batch.label(class="form-label") }}
+
+		{{ form.batch(class="form-control") }}
+		<br/>
+
+        {{ form.wafer.label(class="form-label") }}
+
+		{{ form.wafer(class="form-control") }}
+		<br/>
+
+		
+
+		{{ form.submit(class="btn btn-secondary") }}
+
+
+	</form>
+
+    
+</div>
+
+{% endblock %}
