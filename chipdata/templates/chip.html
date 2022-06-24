@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<head>
+<style>
+	h1{text-align: center;}
+</style>
+</head>
+
+<h1>Input Chip Data</h1>
 <div class="shadow p-3 mb-5 bg-body rounded">
 	<form method="POST">
 		{{ form.hidden_tag() }}
@@ -20,14 +27,12 @@
 		{{ form.wafer(class="form-control") }}
 		<br/>
 
-		
-
-		{{ form.submit(class="btn btn-secondary") }}
+		 {{form.submit(class="btn btn-secondary") }}
 
 
 	</form>
 
-    
+	  
 </div>
 
 {% endblock %}
