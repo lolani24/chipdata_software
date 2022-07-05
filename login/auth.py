@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from pickle import FALSE, TRUE
 from pip import main
 from flask import Blueprint, render_template, request
@@ -32,3 +33,20 @@ def logout():
 #password andres_23
  
 
+=======
+from flask import Blueprint, render_template
+
+auth_blueprint = Blueprint('auth', __name__, template_folder='templates')
+
+@auth_blueprint.route('/login')
+def login():
+    return render_template("login.html")
+
+
+#trial 
+
+
+@auth_blueprint.route('/logout')
+def logout():
+    return "logout page"
+>>>>>>> parent of a50dba8 (login UI and python authorization)
