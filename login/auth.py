@@ -7,7 +7,7 @@ def login():
     return render_template("login.html")
 
 
-
+#trial 
 
 
 @auth_blueprint.route('/logout')
