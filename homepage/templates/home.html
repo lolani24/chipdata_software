@@ -10,14 +10,16 @@
 
 <h1>Select Chip</h1>
  
-
-<div class = "container">
-    <div class="vertical-center">
-        <a  href="{{ url_for('chip.chip')}}"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">SiMo Chip</a>
-        <a href="{{ url_for('chip.chip')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">ME Chip</a>
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <a  href="{{ url_for('chip.chip')}}"  class="btn btn-primary btn-lg active my-5" role="button" aria-pressed="true">SiMo Chip</a>
+      </div>
+      <div class="col-md-auto">
+        <a href="{{ url_for('chip.chip')}}" class="btn btn-secondary btn-lg active my-5" role="button" aria-pressed="true">ME Chip</a>
+      </div>
     </div>
 </div>
-
 {% endblock %}
 
 
