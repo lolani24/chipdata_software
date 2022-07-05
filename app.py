@@ -8,7 +8,7 @@ from login.auth import auth_blueprint
 from homepage.home import home_blueprint
 from chipdata.basicinfo import chip_blueprint
 from QA.quality_assurance import QA_blueprint
-  #trial run s
+ 
 
 
 def create_app():
