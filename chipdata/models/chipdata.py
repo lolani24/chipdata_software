@@ -8,6 +8,7 @@ class Chip(db.Model):
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
 
 class QA(db.Model):
+    __tablename__ = 'QA'
     channel_1 = db.Column(db.String, primary_key=True)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)
@@ -15,6 +16,7 @@ class QA(db.Model):
     channel_5 = db.Column(db.String)
     
 class EQA(db.Model):
+    __tablename__ = 'EQA'
     channel_1 = db.Column(db.String, primary_key=True)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)
@@ -22,6 +24,7 @@ class EQA(db.Model):
     channel_5 = db.Column(db.String)
 
 class LQA(db.Model):
+    __tablename__ = 'LQA'
     channel_1 = db.Column(db.String, primary_key=True)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)

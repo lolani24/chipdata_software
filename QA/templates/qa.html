@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+	h1{text-align: center;}
+</style>
+</head>
+
+<h1>Input OQA Data</h1>
+<div class="container my-3 border border-dark border-2 rounded bg-opacity-50 py-5 ">
+	<form method="POST">
+		{{ form.hidden_tag() }}
+
+		{{ form.channel_1.label(class="form-label") }}
+
+		{{ form.channel_1(class="form-control") }}
+		<br/>
+
+		{{ form.channel_2.label(class="form-label") }}
+
+		{{ form.channel_2(class="form-control") }}
+		<br/>
+
+        {{ form.channel_3.label(class="form-label") }}
+
+		{{ form.channel_3(class="form-control") }}
+		<br/>
+
+		{{ form.channel_4.label(class="form-label") }}
+
+		{{ form.channel_4(class="form-control") }}
+		<br/>
+
+        {{ form.channel_5.label(class="form-label") }}
+
+		{{ form.channel_5(class="form-control") }}
+		<br/>
+
+		{{form.submit(class="btn btn-secondary") }}
+
+
+	</form>
+
+	  
+</div>
+
+{% endblock %}
