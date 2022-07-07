@@ -26,7 +26,7 @@ def authorize():
                             
 @auth_blueprint.route('/logout')
 def logout():
-    return "logout page"
+    return render_template("logout.html")
  
  
 #user aranlab
