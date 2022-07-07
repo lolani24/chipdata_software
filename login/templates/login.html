@@ -1,26 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
- 
-<form action="{{ url_for("auth.authorize")}}" method="post">
+
+{% if incorrect_login == True %}
+ <form action="{{ url_for("auth.authorize")}}" method="post">
   <div class="col-md-4 offset-xl-4">
-    <div>
-      <h1 class="container my-3">Login</h1>
-    </div>
-    <div class="container my-3 border border-dark border-2 rounded bg-opacity-50"style="background-color:  #57b1ee  ;">
-      <div class="container py-3 my-3">
-        <label for="InputUsername" class="form-label">Username</label>
-        <input type="text" class="form-control" id="InputUsername" name="fusername">
+    <div class="my-5">
+      <div>
+        <h1 class="container my-3">Login</h1>
       </div>
-      <div class="container my-3">
-        <label for="InputPassword" class="form-label">Password</label>
-        <input type="password" class="form-control" id="InputPassword" name="fpassword" >
-      </div>
-      <div class="container my-3">
-        <button type="submit" class="btn my-4 mr-5 border-2 border-dark" style="background-color:  #c9c9c9e0  ;">Submit</button>
+      <div class="container my-3 border border-dark border-2 rounded bg-opacity-50"style="background-color:  #57b1ee  ;">
+        <div class="container py-4 my-3">
+          <label for="InputUsername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="InputUsername" name="fusername">
+        </div>
+        <div class="container py-2 my-3">
+          <label for="InputPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="InputPassword" name="fpassword" >
+        </div>
+        <p class="mx-3 lh-1 text-danger"> Incorrect login, please try again. </p>
+        <div class="container my-3">
+          <button type="submit" class="btn my-4 mr-5 border-2 border-dark" style="background-color:  #c9c9c9e0  ;">Submit</button>
+        </div>
       </div>
     </div>
   </div>
 </form>
- 
- {% endblock %}
+
+{% else %}
+<form action="{{ url_for("auth.authorize")}}" method="post">
+  <div class="col-md-4 offset-xl-4">
+    <div class="my-5">
+      <div>
+        <h1 class="container my-3">Login</h1>
+      </div>
+      <div class="container my-3 border border-dark border-2 rounded bg-opacity-50"style="background-color:  #57b1ee  ;">
+        <div class="container py-4 my-3">
+          <label for="InputUsername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="InputUsername" name="fusername">
+        </div>
+        <div class="container py-2 my-3">
+          <label for="InputPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="InputPassword" name="fpassword" >
+        </div>
+        <div class="container my-3">
+          <button type="submit" class="btn my-4 mr-5 border-2 border-dark" style="background-color:  #c9c9c9e0  ;">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endif %}
+{% endblock %}
 

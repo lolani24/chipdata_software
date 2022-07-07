@@ -6,6 +6,7 @@ auth_blueprint = Blueprint('auth', __name__, template_folder='templates')
 
 correct_login = None
 before_login = True
+incorrect_login = None
  
 @auth_blueprint.route('/login')
 def login():
@@ -19,7 +20,7 @@ def authorize():
         if p_username == "aranlab" and p_password == "andres_23":
             return render_template("home.html", correct_login = True, before_login = False)
         else:
-            return "Incorrect Login Information"
+            return render_template("login.html", incorrect_login = True)
     else:
         return "Invalid Method" 
                             
