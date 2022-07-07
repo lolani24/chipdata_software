@@ -3,12 +3,11 @@
  
   <div class="col-md-4 offset-xl-4">
     <div>
-      <h1 class="container my-3">Logout</h1>
+      <h2 class="container my-3">You have succesfully logged out</h2>
     </div>
-    <div class="container my-3 border border-dark border-2 rounded bg-opacity-50"style="background-color:  #57b1ee  ;">
+    <div class="container my-4 border border-dark border-2 rounded bg-opacity-50"style="background-color:  #57b1ee  ;">
       <div class="container my-3">
-        <button type="submit" class="btn my-4 mr-5 border-2 border-dark" style="background-color:  #c9c9c9e0  ;">Submit</button>
-      </div>
+        <a class="btn btn-lg my-3 mr-5 border-2 border-dark" href="{{ url_for('auth.login')}}" role="button" style="background-color:  #c9c9c9e0  ;"> Login</a>      </div>
     </div>
   </div>
  
