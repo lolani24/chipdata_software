@@ -37,4 +37,4 @@ def qa():
         form.channel_3.data = ''
         form.channel_4.data =''
         form.channel_5.data=''
-    return render_template('qa.html', form=form)
+    return render_template('qa.html', form=form, correct_login = True, before_login = False)
