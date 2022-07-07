@@ -27,12 +27,12 @@ def chip():
         form.id.data =''
         form.batch.data =''
         form.wafer.data = ''
-    return render_template('chip.html', form=form)
+    return render_template('chip.html', form=form, correct_login = True, before_login = False)
 
 @chip_blueprint.route('/data')
 def data():
     chip_info = Chip.query.order_by(Chip.date_added)
-    return render_template("datatable.html", chip_info=chip_info)
+    return render_template("datatable.html", chip_info=chip_info, correct_login = True, before_login = False)
 
 
 

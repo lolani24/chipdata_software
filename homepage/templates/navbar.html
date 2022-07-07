@@ -1,4 +1,4 @@
-{% if not correct_login %}
+{% if before_login == True %} <!-- before_login == true -->
 <nav class="navbar navbar-expand-lg" style="background-color:  #57b1ee  ;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Chip Software</a>
@@ -20,7 +20,7 @@
   <h1> Wrong Password </h1>
   
 {% elif correct_login == true %}
-
+  {% set correct_login = true %} 
 <nav class="navbar navbar-expand-lg" style="background-color:  #57b1ee  ;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Chip Software</a>

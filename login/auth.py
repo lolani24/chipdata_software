@@ -5,6 +5,7 @@ from flask import Blueprint, render_template, request
 auth_blueprint = Blueprint('auth', __name__, template_folder='templates')
 
 correct_login = None
+before_login = True
  
 @auth_blueprint.route('/login')
 def login():
@@ -16,13 +17,12 @@ def authorize():
         p_username = request.form.get("fusername")  
         p_password = request.form.get("fpassword")
         if p_username == "aranlab" and p_password == "andres_23":
-            
-            return render_template("home.html", correct_login = True)
+            return render_template("home.html", correct_login = True, before_login = False)
         else:
             return "Incorrect Login Information"
     else:
         return "Invalid Method" 
- 
+                            
 @auth_blueprint.route('/logout')
 def logout():
     return "logout page"
