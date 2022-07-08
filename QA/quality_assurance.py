@@ -6,11 +6,12 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField, Valid
 from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 from extensions import db
-from chipdata.models.chipdata import QA, EQA
+from chipdata.models.chipdata import QA, EQA, LQA
 
 
 QA_blueprint = Blueprint('QA', __name__, template_folder='templates')
 
+#OQA Form 
 
 class QAForm(FlaskForm):
     channel_1 = SelectField('Channel 1', choices=[('Good'),('Bad')])
@@ -37,6 +38,7 @@ def qa():
     return render_template('qa.html', form=form, correct_login = True, before_login = False)
 
 
+#EQA Form 
 
 class EQAForm(FlaskForm):
     Reschannel_1 = FloatField('Channel 1 Resistance', validators=[DataRequired()])
@@ -61,3 +63,51 @@ def eqa():
         form.Reschannel_4.data =''
         form.Reschannel_5.data=''
     return render_template('eqa.html', form=form, correct_login = True, before_login = False)
+
+
+
+#LQA Form 
+class LQAForm(FlaskForm):
+    channel_1_min = FloatField('Channel 1 Minimal Resistance', validators=[DataRequired()])
+    channel_1_max= FloatField('Channel 1 Maximum Resistance', validators=[DataRequired()])
+    channel_1_slope = FloatField('Channel 1 Slope', validators=[DataRequired()])
+    channel_2_min = FloatField('Channel 2 Minimal Resistance', validators=[DataRequired()])
+    channel_2_max= FloatField('Channel 2 Maximum Resistance', validators=[DataRequired()])
+    channel_2_slope = FloatField('Channel 2 Slope', validators=[DataRequired()])
+    channel_3_min = FloatField('Channel 3 Minimal Resistance', validators=[DataRequired()])
+    channel_3_max= FloatField('Channel 3 Maximum Resistance', validators=[DataRequired()])
+    channel_3_slope = FloatField('Channel 3 Slope', validators=[DataRequired()])
+    channel_4_min = FloatField('Channel 4 Minimal Resistance', validators=[DataRequired()])
+    channel_4_max= FloatField('Channel 4 Maximum Resistance', validators=[DataRequired()])
+    channel_4_slope = FloatField('Channel 4 slope', validators=[DataRequired()])
+    channel_5_min = FloatField('Channel 5 Minimal Resistance', validators=[DataRequired()])
+    channel_5_max= FloatField('Channel 5 Maxium Resistance', validators=[DataRequired()])
+    channel_5_slope = FloatField('Channel 5 Slope', validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
+
+@QA_blueprint.route('/LQA', methods=['POST', 'GET'])
+def lqa():
+    lqa = None
+    form = LQAForm()
+    if form.validate_on_submit():
+        lqa = LQA(channel_1_min = form.channel_1_min.data, channel_1_max = form.channel_1_max.data, channel_1_slope = form.channel_1_slope.data, channel_2_min = form.channel_2_min.data, channel_2_max = form.channel_2_max.data, channel_2_slope = form.channel_2_slope.data, channel_3_min = form.channel_3_min.data, channel_3_max = form.channel_3_max.data, channel_3_slope = form.channel_3_slope.data, channel_4_min = form.channel_4_min.data, channel_4_max = form.channel_4_max.data, channel_4_slope = form.channel_4_slope.data, channel_5_min = form.channel_5_min.data, channel_5_max = form.channel_5_max.data, channel_5_slope = form.channel_5_slope.data) 
+        db.session.add(lqa)
+        db.session.commit()
+        form.channel_1_min.data = ''
+        form.channel_1_max.data = ''
+        form.channel_1_slope.data = ''
+        form.channel_2_min.data = ''
+        form.channel_2_max.data = ''
+        form.channel_2_slope.data = ''
+        form.channel_3_min.data = ''
+        form.channel_3_max.data = ''
+        form.channel_3_slope.data = ''
+        form.channel_4_min.data = ''
+        form.channel_4_max.data = ''
+        form.channel_4_slope.data = ''
+        form.channel_5_min.data = ''
+        form.channel_5_max.data = ''
+        form.channel_5_slope.data = ''
+        
+    return render_template('lqa.html', form=form, correct_login = True, before_login = False)
