@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+	h1{text-align: center;}
+</style>
+</head>
+
+<h1>Input LQA Data</h1>
+<div class="container my-3 border border-dark border-2 rounded bg-opacity-50 py-5 ">
+	<form method="POST">
+		{{form.csrf_token}}
+		<br/>
+		{{ form.channel_1_min.label(class="form-label") }}
+		{{form.channel_1_min}}
+		<br/>
+		{{ form.channel_1_max.label(class="form-label") }}
+		{{form.channel_1_max}}
+		<br/>
+		{{ form.channel_1_slope.label(class="form-label") }}
+		{{form.channel_1_slope}}
+        <br/>
+
+        <br/>
+		{{ form.channel_2_min.label(class="form-label") }}
+		{{form.channel_2_min}}
+		<br/>
+		{{ form.channel_2_max.label(class="form-label") }}
+		{{form.channel_2_max}}
+		<br/>
+		{{ form.channel_2_slope.label(class="form-label") }}
+		{{form.channel_2_slope}}
+		<br/>
+
+        <br/>
+		{{ form.channel_3_min.label(class="form-label") }}
+		{{form.channel_3_min}}
+		<br/>
+		{{ form.channel_3_max.label(class="form-label") }}
+		{{form.channel_3_max}}
+		<br/>
+		{{ form.channel_3_slope.label(class="form-label") }}
+		{{form.channel_3_slope}}
+		<br/>
+
+		<br/>
+		{{ form.channel_4_min.label(class="form-label") }}
+		{{form.channel_4_min}}
+		<br/>
+		{{ form.channel_4_max.label(class="form-label") }}
+		{{form.channel_4_max}}
+		<br/>
+		{{ form.channel_4_slope.label(class="form-label") }}
+		{{form.channel_4_slope}}
+		<br/>
+
+        <br/>
+		{{ form.channel_5_min.label(class="form-label") }}
+		{{form.channel_5_min}}
+		<br/>
+		{{ form.channel_5_max.label(class="form-label") }}
+		{{form.channel_5_max}}
+		<br/>
+		{{ form.channel_5_slope.label(class="form-label") }}
+		{{form.channel_5_slope}}
+		<br/>
+		{{form.submit(class="btn btn-secondary") }}
+		<br/>
+	</form>
+
+	  
+</div>
+
+{% endblock %}
