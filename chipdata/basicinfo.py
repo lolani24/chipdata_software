@@ -34,5 +34,13 @@ def data():
     chip_info = Chip.query.order_by(Chip.date_added)
     return render_template("datatable.html", chip_info=chip_info, correct_login = True, before_login = False)
 
+@chip_blueprint.route('/simo')
+def simo():
+    return render_template("simo.html", correct_login = True, before_login = False)
+
+@chip_blueprint.route('/me')
+def me():
+    return render_template("me.html", correct_login = True, before_login = False)
+
 
 

@@ -9,7 +9,8 @@ class Chip(db.Model):
 
 class QA(db.Model):
     __tablename__ = 'QA'
-    channel_1 = db.Column(db.String, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, nullable = False)
+    channel_1 = db.Column(db.String)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)
     channel_4 = db.Column(db.String)
@@ -17,15 +18,17 @@ class QA(db.Model):
     
 class EQA(db.Model):
     __tablename__ = 'EQA'
-    channel_1 = db.Column(db.String, primary_key=True)
-    channel_2 = db.Column(db.String)
-    channel_3 = db.Column(db.String)
-    channel_4 = db.Column(db.String)
-    channel_5 = db.Column(db.String)
+    id = db.Column(db.Integer, primary_key=True, nullable = False)
+    Reschannel_1 = db.Column(db.String)
+    Reschannel_2 = db.Column(db.String)
+    Reschannel_3 = db.Column(db.String)
+    Reschannel_4 = db.Column(db.String)
+    Reschannel_5 = db.Column(db.String)
 
 class LQA(db.Model):
     __tablename__ = 'LQA'
-    channel_1 = db.Column(db.String, primary_key=True)
+    id = db.Column(db.Integer, primary_key= True, nullable = False)
+    channel_1 = db.Column(db.String)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)
     channel_4 = db.Column(db.String)
