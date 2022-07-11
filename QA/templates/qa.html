@@ -8,34 +8,33 @@
 </head>
 
 <h1>Input OQA Data</h1>
-
-<div class="col-md-4 offset-xl-4">
-    <div class="my-5">
-		<div class="container my-3 border border-dark border-2 rounded bg-opacity-0 py-5 px-7" style="background-color: #E4F9F9;">
+<div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 400px; height:325px;">
+	<div class="row justify-content-md-center">
+		<div class="col-md-auto">
 			<section style="font-size:20px">
 					<form method="POST">
-						<div class="row justify-content-md-center">
-							<div class="col-md-5"> 
-								{{form.csrf_token}}
+						{{form.csrf_token}}
+						<br/>
+						{{ form.channel_1.label(class="form-label px-4") }}
+						{{form.channel_1(class="form-label mx-4")}}
+						<br/>
+						{{ form.channel_2.label(class="form-label px-4") }}
+						{{form.channel_2(class="form-label mx-4")}}
+						<br/>
+						{{ form.channel_3.label(class="form-label px-4") }}
+						{{form.channel_3(class="form-label mx-4")}}
+						<br/>
+						{{ form.channel_4.label(class="form-label px-4") }}
+						{{form.channel_4(class="form-label mx-4")}}
+						<br/>
+						{{ form.channel_5.label(class="form-label px-4") }}
+						{{form.channel_5(class="form-label mx-4")}}
+						<br/>
+						<div class="col-md-4 offset-md-4">
+							<div class="row justify-content-md-center">
+								{{form.submit(class="btn btn-secondary btn-md my-3") }}
 								<br/>
-								{{ form.channel_1.label(class="form-label px-4") }}
-								{{form.channel_1}}
-								<br/>
-								{{ form.channel_2.label(class="form-label px-4") }}
-								{{form.channel_2}}
-								<br/>
-								{{ form.channel_3.label(class="form-label px-4") }}
-								{{form.channel_3}}
-								<br/>
-								{{ form.channel_4.label(class="form-label px-4") }}
-								{{form.channel_4}}
-								<br/>
-								{{ form.channel_5.label(class="form-label px-4") }}
-								{{form.channel_5}}
-								<br/>
-								<br/>
-								{{form.submit(class="btn btn-secondary btn-lg py-3 my-4 px-4 offset-md-3") }}
-							</div>
+							</div>	
 						</div>
 						<br/>
 					</form>
