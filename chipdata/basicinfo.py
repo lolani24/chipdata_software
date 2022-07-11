@@ -9,6 +9,8 @@ from .models.chipdata import Chip
 
 chip_blueprint = Blueprint('chip', __name__, template_folder='templates')
 
+
+#Basic Chip Information Form
 class ChipForm(FlaskForm):
 	id = StringField("Chip ID", validators=[DataRequired()])
 	wafer = StringField("Wafer Number", validators=[DataRequired()])
@@ -29,11 +31,15 @@ def chip():
         form.wafer.data = ''
     return render_template('chip.html', form=form, correct_login = True, before_login = False)
 
+
+# Basic Data Table 
 @chip_blueprint.route('/data')
 def data():
     chip_info = Chip.query.order_by(Chip.date_added)
     return render_template("datatable.html", chip_info=chip_info, correct_login = True, before_login = False)
 
+
+# Chip Interface
 @chip_blueprint.route('/simo')
 def simo():
     return render_template("simo.html", correct_login = True, before_login = False)

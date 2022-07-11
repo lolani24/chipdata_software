@@ -12,6 +12,10 @@ incorrect_login = None
 def login():
     return render_template("login.html")
    
+# Login Page 
+    # Username: aranlab
+    # Password: andres_23
+
 @auth_blueprint.route('/login', methods =["GET", "POST"])
 def authorize():
     if request.method == "POST":
@@ -23,12 +27,10 @@ def authorize():
             return render_template("login.html", incorrect_login = True)
     else:
         return "Invalid Method" 
-                            
+
+# Logout Page                      
 @auth_blueprint.route('/logout')
 def logout():
     return render_template("logout.html")
  
  
-#user aranlab
-#password andres_23
-# round 11

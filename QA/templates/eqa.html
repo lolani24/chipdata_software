@@ -8,29 +8,39 @@
 </head>
 
 <h1>Input EQA Data</h1>
-<div class="container my-3 border border-dark border-2 rounded bg-opacity-50 py-5 ">
-	<form method="POST">
-		{{form.csrf_token}}
-		<br/>
-		{{ form.Reschannel_1.label(class="form-label") }}
-		{{form.Reschannel_1}}
-		<br/>
-		{{ form.Reschannel_2.label(class="form-label") }}
-		{{form.Reschannel_2}}
-		<br/>
-		{{ form.Reschannel_3.label(class="form-label") }}
-		{{form.Reschannel_3}}
-		<br/>
-		{{ form.Reschannel_4.label(class="form-label") }}
-		{{form.Reschannel_4}}
-		<br/>
-		{{ form.Reschannel_5.label(class="form-label") }}
-		{{form.Reschannel_5}}
-		<br/>
-		{{form.submit(class="btn btn-secondary") }}
-		<br/>
-	</form>
-
+<div class="col-md-4 offset-md-4">
+    <div class="row justify-content-md-center">
+		<div class="my-3 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: transparent;">
+			<section style="font-size:20px">
+				<form method="POST">
+					{{form.csrf_token}}
+					<br/>
+					{{ form.Reschannel_1.label(class="form-label") }}
+					{{form.Reschannel_1}}
+					<br/>
+					{{ form.Reschannel_2.label(class="form-label ") }}
+					{{form.Reschannel_2}}
+					<br/>
+					{{ form.Reschannel_3.label(class="form-label  ") }}
+					{{form.Reschannel_3}}
+					<br/>
+					{{ form.Reschannel_4.label(class="form-label ") }}
+					{{form.Reschannel_4}}
+					<br/>
+					{{ form.Reschannel_5.label(class="form-label ") }}
+					{{form.Reschannel_5}}
+					<br/>
+					<div class="col-md-4 offset-md-4">
+						<div class="row justify-content-md-center">
+							{{form.submit(class="btn btn-secondary btn-md my-4") }}
+							<br/>
+						</div>	
+					</div>
+				</form>
+			</section>
+		</div>
+	</div>
+</div>
 	  
 </div>
 
