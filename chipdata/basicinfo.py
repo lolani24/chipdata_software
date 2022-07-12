@@ -1,3 +1,4 @@
+from pickle import NONE
 from flask import Blueprint, render_template, url_for, request, redirect, flash
 from flask_wtf import FlaskForm
 from datetime import datetime
@@ -5,11 +6,14 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField, Valid
 from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 from extensions import db
-from .models.chipdata import Chip
+
+
 from chipdata.models.chipdata import QA, EQA, LQA
+=======
 
 chip_blueprint = Blueprint('chip', __name__, template_folder='templates')
 
+chip_info_v = None
 
 #Basic Chip Information Form
 class ChipForm(FlaskForm):
@@ -27,10 +31,14 @@ def chip():
             chip = Chip(id=form.id.data, batch=form.batch.data, wafer=form.wafer.data) 
             db.session.add(chip)
             db.session.commit()
-        form.id.data =''
-        form.batch.data =''
-        form.wafer.data = ''
-    return render_template('chip.html', form=form, correct_login = True, before_login = False)
+            form.id.data =''
+            form.batch.data =''
+            form.wafer.data = ''
+        return render_template('chip.html', form=form, correct_login = True, before_login = False, chip_info_v = True)
+    else:
+        return render_template('chip.html', form = form, correct_login = True, before_login = False, chip_info_v = False)
+    
+
 
 
 # Basic Data Table 
