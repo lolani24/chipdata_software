@@ -7,99 +7,98 @@
 </style>
 </head>
 
-<h1>Input LQA Data</h1>
 {% if lqa_success == True %}
-<div class="row justify-content-md-center ">
-    <div class="col-md-auto">
-		<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
-			<section style="font-size:20px">
-				<div class="col-md-auto">
-					<p class="fw-bold my-5 lh-1 text-success">Form submitted successfully.</p>
-				</div>
-					<div class="row justify-content-md-center ">	
-						<div class="col-md-auto">
-							<a role="button" class="btn btn-primary btn-md" href="{{ url_for('chip.chip')}}">Back</a>
-							<a role="button" class="btn btn-success btn-md" href="{{ url_for('QA.lqa')}}">Next</a>
-						</div>	
+	<h1>Input LQA Data</h1>
+	<div class="row justify-content-md-center ">
+		<div class="col-md-auto">
+			<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
+				<section style="font-size:20px">
+					<div class="col-md-auto">
+						<p class="fw-bold my-4 text-success">Form submitted successfully.</p>
 					</div>
-
-			</section>
-		</div>
-	</div>	
-</div>
+						<div class="row justify-content-md-center ">	
+							<div class="col-md-auto">
+								<a role="button" class="btn btn-primary btn-md my-3" href="{{ url_for('QA.eqa')}}">Back</a>
+								<a role="button" class="btn btn-success btn-md my-3" href="{{ url_for('home.home')}}">Home</a>
+							</div>	
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>	
+	</div>
 {% elif lqa_success == False %}
-<div class="row justify-content-md-center ">
-    <div class="col-md-auto">
-		<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
-			<section style="font-size:20px">
-
-				<form method="POST">
-				{{form.csrf_token}}
-				<br/>
-				{{ form.channel_1_min.label(class="form-label") }}
-				{{form.channel_1_min (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_1_max.label(class="form-label") }}
-				{{form.channel_1_max (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_1_slope.label(class="form-label") }}
-				{{form.channel_1_slope}}
-				<br/>
-
-				<br/>
-				{{ form.channel_2_min.label(class="form-label") }}
-				{{form.channel_2_min (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_2_max.label(class="form-label") }}
-				{{form.channel_2_max (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_2_slope.label(class="form-label") }}
-				{{form.channel_2_slope}}
-				<br/>
-
-				<br/>
-				{{ form.channel_3_min.label(class="form-label") }}
-				{{form.channel_3_min (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_3_max.label(class="form-label") }}
-				{{form.channel_3_max (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_3_slope.label(class="form-label") }}
-				{{form.channel_3_slope}}
-				<br/>
-
-				<br/>
-				{{ form.channel_4_min.label(class="form-label") }}
-				{{form.channel_4_min (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_4_max.label(class="form-label") }}
-				{{form.channel_4_max (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_4_slope.label(class="form-label") }}
-				{{form.channel_4_slope}}
-				<br/>
-
-				<br/>
-				{{ form.channel_5_min.label(class="form-label") }}
-				{{form.channel_5_min (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_5_max.label(class="form-label") }}
-				{{form.channel_5_max (placeholder="                                amps")}}
-				<br/>
-				{{ form.channel_5_slope.label(class="form-label") }}
-				{{form.channel_5_slope}}
-				<br/>
-				<div class="col-md-4 offset-md-4">
-					<div class="row justify-content-md-center">
-						{{form.submit(class="btn btn-secondary btn-md my-4") }}
+	<h1>Input LQA Data</h1>
+	<div class="row justify-content-md-center ">
+		<div class="col-md-auto">
+			<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
+				<section style="font-size:20px">
+					<form method="POST">
+						{{form.csrf_token}}
 						<br/>
-					</div>	
-				</div>
-				</form>
-			</section>
-		</div>
-	</div>	
-</div>
+						{{ form.channel_1_min.label(class="form-label") }}
+						{{form.channel_1_min (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_1_max.label(class="form-label") }}
+						{{form.channel_1_max (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_1_slope.label(class="form-label") }}
+						{{form.channel_1_slope}}
+						<br/>
 
+						<br/>
+						{{ form.channel_2_min.label(class="form-label") }}
+						{{form.channel_2_min (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_2_max.label(class="form-label") }}
+						{{form.channel_2_max (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_2_slope.label(class="form-label") }}
+						{{form.channel_2_slope}}
+						<br/>
+
+						<br/>
+						{{ form.channel_3_min.label(class="form-label") }}
+						{{form.channel_3_min (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_3_max.label(class="form-label") }}
+						{{form.channel_3_max (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_3_slope.label(class="form-label") }}
+						{{form.channel_3_slope}}
+						<br/>
+
+						<br/>
+						{{ form.channel_4_min.label(class="form-label") }}
+						{{form.channel_4_min (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_4_max.label(class="form-label") }}
+						{{form.channel_4_max (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_4_slope.label(class="form-label") }}
+						{{form.channel_4_slope}}
+						<br/>
+
+						<br/>
+						{{ form.channel_5_min.label(class="form-label") }}
+						{{form.channel_5_min (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_5_max.label(class="form-label") }}
+						{{form.channel_5_max (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_5_slope.label(class="form-label") }}
+						{{form.channel_5_slope}}
+						<br/>
+						<div class="col-md-4 offset-md-4">
+							<div class="row justify-content-md-center">
+								{{form.submit(class="btn btn-secondary btn-md my-4") }}
+								<br/>
+							</div>	
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>	
+	</div>
 {% endif %}
 {% endblock %}

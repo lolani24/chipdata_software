@@ -6,7 +6,7 @@
 	h1{text-align: center;}
 </style>
 </head>
-{% if eqa == True %}
+{% if eqa_success == True %}
 	<h1>Input EQA Data</h1>
 	<div class="col-md-4 offset-md-4">
 		<div class="row justify-content-md-center">
@@ -14,12 +14,12 @@
 				<section style="font-size:20px">
 					<div class="row justify-content-md-center ">	
 						<div class="col-md-auto">
-							<p class="fw-bold lh-1 text-success">Form submitted successfully.</p>
+							<p class="fw-bold lh-3 text-success">Form submitted successfully.</p>
 						</div>
 					</div>
 					<div class="row justify-content-md-center ">	
 						<div class="col-md-auto">
-							<a role="button" class="btn btn-primary btn=md my-3" href="{{ url_for('home.home')}}">Back</a>
+							<a role="button" class="btn btn-primary btn-md my-3" href="{{ url_for('QA.qa')}}">Back</a>
 							{{form.submit(class="btn btn-secondary btn-md my-3") }}
 							<a role="button" class="btn btn-success btn-md my-3" href="{{ url_for('QA.lqa')}}">Next</a>
 						</div>	
@@ -29,7 +29,7 @@
 		</div>
 	</div>
 	  
-{% elif eqa == False %}
+{% elif eqa_success == False %}
 	<h1>Input EQA Data</h1>
 	<div class="col-md-4 offset-md-4">
 		<div class="row justify-content-md-center">

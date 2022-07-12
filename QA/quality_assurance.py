@@ -122,6 +122,6 @@ def lqa():
         form.channel_5_max.data = ''
         form.channel_5_slope.data = ''
         
-        return render_template('lqa.html', form=form, correct_login = True, before_login = False, lqa_success=True)
+        return render_template('lqa.html', form=form, correct_login = True, before_login = False, lqa_success = True)
     else:
         return render_template('lqa.html', form = form, correct_login = True, before_login = False, lqa_success = False)
