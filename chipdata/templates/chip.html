@@ -6,40 +6,65 @@
 	h1{text-align: center;}
 </style>
 </head>
+{% if chip_info_v == True %}
+	<h1>Input Chip Data</h1>
+	<div class="col-md-4 offset-md-4">
+		<div class="row justify-content-md-center">
+			<div class="my-3 py-4 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de;">
+				<section style="font-size:20px">	
+						<div class="row justify-content-md-center ">	
+							<div class="col-md-auto">
+								<p class="fw-bold lh-1 text-success">Form submitted successfully.</p>
+							</div>
+						</div>
+						<div class="row justify-content-md-center ">	
+							<div class="col-md-auto">
+								<a role="button" class="btn btn-primary btn=md my-3" href="{{ url_for('home.home')}}">Back</a>
+								{{form.submit(class="btn btn-secondary btn-md my-3") }}
+								<a role="button" class="btn btn-success btn-md my-3" href="{{ url_for('QA.qa')}}">Next</a>
+							</div>	
+						</div>
 
-<h1>Input Chip Data</h1>
-<div class="col-md-4 offset-md-4">
-    <div class="row justify-content-md-center">
-		<div class="my-3 py-4 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de;">
-			<section style="font-size:20px">	
-				<form method="POST">
-					{{ form.hidden_tag() }}
+					</form>
+				</section>		
+			</div>
+		</div>  
+	</div>
+{% elif chip_info_v==False %}
+	<h1>Input Chip Data</h1>
+	<div class="col-md-4 offset-md-4">
+		<div class="row justify-content-md-center">
+			<div class="my-3 py-4 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de;">
+				<section style="font-size:20px">	
+					<form method="POST">
+						{{ form.hidden_tag() }}
 
-					{{ form.id.label(class="form-label") }}
+						{{ form.id.label(class="form-label") }}
 
-					{{ form.id(class="form-control") }}
-					<br/>
+						{{ form.id(class="form-control") }}
+						<br/>
 
-					{{ form.batch.label(class="form-label") }}
+						{{ form.batch.label(class="form-label") }}
 
-					{{ form.batch(class="form-control") }}
-					<br/>
+						{{ form.batch(class="form-control") }}
+						<br/>
 
-					{{ form.wafer.label(class="form-label") }}
+						{{ form.wafer.label(class="form-label") }}
 
-					{{ form.wafer(class="form-control") }}
-					<br/>
-					<div class="col-md-4 offset-md-4">
-						<div class="row justify-content-md-center">
-							{{form.submit(class="btn btn-secondary btn-md my-3") }}
-							<br/>
-						</div>	
-					</div>
+						{{ form.wafer(class="form-control") }}
+						<br/>
+						<div class="col-md-4 offset-md-4">
+							<div class="row justify-content-md-center">
+								{{form.submit(class="btn btn-secondary btn-md my-3") }}
+								<br/>
+							</div>	
+						</div>
 
-				</form>
-			</section>		
-		</div>
-	</div>  
-</div>
+					</form>
+				</section>		
+			</div>
+		</div>  
+	</div>
+{% endif %}
 
 {% endblock %}
