@@ -11,6 +11,10 @@ from chipdata.models.chipdata import QA, EQA, LQA
 
 QA_blueprint = Blueprint('QA', __name__, template_folder='templates')
 
+qa_success = False
+eqa_success = False
+lqa_success = False
+
 #OQA Form 
 
 class QAForm(FlaskForm):
@@ -21,6 +25,9 @@ class QAForm(FlaskForm):
     channel_5 = SelectField('Channel 5', choices=[('Good'),('Bad')])
     submit = SubmitField("Submit")
 
+qa_success=None
+eqa_success=None
+lqa_success=None
 
 @QA_blueprint.route('/OQA', methods=['POST', 'GET'])
 def qa():
@@ -35,7 +42,9 @@ def qa():
         form.channel_3.data = ''
         form.channel_4.data =''
         form.channel_5.data=''
-    return render_template('qa.html', form=form, correct_login = True, before_login = False)
+        return render_template('qa.html', form=form, correct_login = True, before_login = False, qa_success=True)
+    else:
+        return render_template('qa.html', form = form, correct_login = True, before_login = False, qa_success = False)
 
 
 #EQA Form 
@@ -62,7 +71,10 @@ def eqa():
         form.Reschannel_3.data = ''
         form.Reschannel_4.data =''
         form.Reschannel_5.data=''
-    return render_template('eqa.html', form=form, correct_login = True, before_login = False)
+        return render_template('eqa.html', form=form, correct_login = True, before_login = False, eqa_success=True)
+    else:
+        return render_template('eqa.html', form = form, correct_login = True, before_login = False, eqa_success = False)
+
 
 
 
@@ -110,4 +122,6 @@ def lqa():
         form.channel_5_max.data = ''
         form.channel_5_slope.data = ''
         
-    return render_template('lqa.html', form=form, correct_login = True, before_login = False)
+        return render_template('lqa.html', form=form, correct_login = True, before_login = False, lqa_success = True)
+    else:
+        return render_template('lqa.html', form = form, correct_login = True, before_login = False, lqa_success = False)
