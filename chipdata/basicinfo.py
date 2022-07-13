@@ -6,10 +6,8 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField, Valid
 from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 from extensions import db
+from chipdata.models.chipdata import Batch, Wafer, Chip, OQA, EQA, LQA
 
-
-from chipdata.models.chipdata import QA, EQA, LQA
-=======
 
 chip_blueprint = Blueprint('chip', __name__, template_folder='templates')
 
@@ -17,7 +15,7 @@ chip_info_v = None
 
 #Basic Chip Information Form
 class ChipForm(FlaskForm):
-	id = StringField("Chip ID", validators=[DataRequired()])
+	chip = StringField("Chip ID", validators=[DataRequired()])
 	wafer = StringField("Wafer Number", validators=[DataRequired()])
 	batch = StringField("Batch Number", validators=[DataRequired()])
 	submit = SubmitField("Submit")
@@ -26,14 +24,16 @@ class ChipForm(FlaskForm):
 def chip():
     form = ChipForm()
     if form.validate_on_submit():
-        chip = Chip.query.filter_by(id=form.id.data).first()
-        if chip is None:
-            chip = Chip(id=form.id.data, batch=form.batch.data, wafer=form.wafer.data) 
-            db.session.add(chip)
-            db.session.commit()
-            form.id.data =''
-            form.batch.data =''
-            form.wafer.data = ''
+        batch = Batch(id=form.batch.data)
+        wafer = Wafer(id=form.wafer.data,batch_id=form.batch.data )
+        chip = Chip(chips=form.chip.data, wafer_id = form.wafer.data)
+        db.session.add(batch)
+        db.session.add(chip)
+        db.session.add(wafer)
+        db.session.commit()
+        form.batch.data=''
+        form.wafer.data=''
+        form.chip.data=''
         return render_template('chip.html', form=form, correct_login = True, before_login = False, chip_info_v = True)
     else:
         return render_template('chip.html', form = form, correct_login = True, before_login = False, chip_info_v = False)
@@ -56,6 +56,10 @@ def simo():
 @chip_blueprint.route('/me')
 def me():
     return render_template("me.html", correct_login = True, before_login = False)
+
+
+
+
 
 
 

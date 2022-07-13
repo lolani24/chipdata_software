@@ -13,7 +13,7 @@ from QA.quality_assurance import QA_blueprint
 
 def create_app():
    app = Flask(__name__)
-   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chip.db'
+   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chipchart.db'
    
 
    
@@ -33,7 +33,7 @@ def create_app():
 
    @app.route('/')
    def test():
-      return "test"
+      return render_template("login.html")
 
    return app
 
