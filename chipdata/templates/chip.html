@@ -39,11 +39,6 @@
 					<form method="POST">
 						{{ form.hidden_tag() }}
 
-						{{ form.id.label(class="form-label") }}
-
-						{{ form.id(class="form-control") }}
-						<br/>
-
 						{{ form.batch.label(class="form-label") }}
 
 						{{ form.batch(class="form-control") }}
@@ -52,6 +47,11 @@
 						{{ form.wafer.label(class="form-label") }}
 
 						{{ form.wafer(class="form-control") }}
+						<br/>
+
+						{{ form.chip.label(class="form-label") }}
+
+						{{ form.chip(class="form-control") }}
 						<br/>
 						<div class="col-md-4 offset-md-4">
 							<div class="row justify-content-md-center">

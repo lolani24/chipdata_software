@@ -1,16 +1,32 @@
 from extensions import db
-from datetime import datetime
+
+
+
+class Batch(db.Model):
+    __tablename__ = 'batch'
+    id = db.Column(db.Integer, primary_key=True)
+    wafer = db.relationship('Wafer', backref ='batch') # wafer to batch
+
+class Wafer(db.Model):
+    __tablename__ = 'wafer'
+    id = db.Column(db.Integer, primary_key=True)
+    batch_id = db.Column(db.Integer, db.ForeignKey('batch.id') )
+    chip = db.relationship('Chip', backref ='wafer') #chip to wafer
 
 
 class Chip(db.Model):
-    id = db.Column(db.String, primary_key=True)
-    batch = db.Column(db.String(500), nullable = False)   
-    wafer = db.Column(db.String(500), nullable = False)
-    date_added = db.Column(db.DateTime, default=datetime.utcnow)
+    __tablename__ = 'chip'
+    id = db.Column(db.Integer, primary_key=True)
+    chips = db.Column(db.String(2))
+    wafer_id = db.Column(db.Integer, db.ForeignKey('wafer.id') ) 
+    oqa = db.relationship('OQA', backref ='chip') #oqa to chip 
+    lqa = db.relationship('LQA', backref ='chip') #lqa to chip
+    eqa = db.relationship('EQA', backref ='chip') #eqa to chip 
 
-class QA(db.Model):
-    __tablename__ = 'QA'
+class OQA(db.Model):
+    __tablename__ = 'OQA'
     id = db.Column(db.Integer, primary_key=True, nullable = False)
+    chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
     channel_1 = db.Column(db.String)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)
@@ -20,6 +36,7 @@ class QA(db.Model):
 class EQA(db.Model):
     __tablename__ = 'EQA'
     id = db.Column(db.Integer, primary_key=True, nullable = False)
+    chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
     Reschannel_1 = db.Column(db.String)
     Reschannel_2 = db.Column(db.String)
     Reschannel_3 = db.Column(db.String)
@@ -29,6 +46,7 @@ class EQA(db.Model):
 class LQA(db.Model):
     __tablename__ = 'LQA'
     id = db.Column(db.Integer, primary_key= True, nullable = False)
+    chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
     channel_1_min = db.Column(db.String)
     channel_1_max = db.Column(db.String)
     channel_1_slope = db.Column(db.String)

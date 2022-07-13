@@ -6,7 +6,7 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField, Valid
 from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 from extensions import db
-from chipdata.models.chipdata import QA, EQA, LQA
+
 
 
 QA_blueprint = Blueprint('QA', __name__, template_folder='templates')
