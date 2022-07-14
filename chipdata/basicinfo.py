@@ -7,11 +7,13 @@ from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 from extensions import db
 from chipdata.models.chipdata import Batch, Wafer, Chip, OQA, EQA, LQA
+from db_utils import get_or_create #either finds an exisiting row or creates a new one 
 
 
 chip_blueprint = Blueprint('chip', __name__, template_folder='templates')
 
 chip_info_v = None
+
 
 #Basic Chip Information Form
 class ChipForm(FlaskForm):
@@ -24,13 +26,9 @@ class ChipForm(FlaskForm):
 def chip():
     form = ChipForm()
     if form.validate_on_submit():
-        batch = Batch(id=form.batch.data)
-        wafer = Wafer(id=form.wafer.data,batch_id=form.batch.data )
-        chip = Chip(chips=form.chip.data, wafer_id = form.wafer.data)
-        db.session.add(batch)
-        db.session.add(chip)
-        db.session.add(wafer)
-        db.session.commit()
+        batch = get_or_create(db.session, Batch, batch_number=form.batch.data)
+        wafer = get_or_create(db.session, Wafer,wafer_number=form.wafer.data,batch_id=batch.id)
+        chip = get_or_create(db.session, Chip, chip=form.chip.data, wafer_id = wafer.id)
         form.batch.data=''
         form.wafer.data=''
         form.chip.data=''
@@ -44,7 +42,8 @@ def chip():
 # Basic Data Table 
 @chip_blueprint.route('/data')
 def data():
-    chip_info = Chip.query.order_by(Chip.date_added)
+    chip_info = Chip.query.order_by(Chip.chip)
+    
     return render_template("datatable.html", chip_info=chip_info, correct_login = True, before_login = False)
 
 
