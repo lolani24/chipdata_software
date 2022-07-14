@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
 from extensions import db
 from datetime import datetime
+from flask_migrate import Migrate
+
 
 
 
@@ -15,7 +17,7 @@ def create_app():
    app = Flask(__name__)
    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chipchart.db'
    
-
+   migrate = Migrate(app, db)
    
    
    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

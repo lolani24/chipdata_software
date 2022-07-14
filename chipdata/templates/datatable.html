@@ -15,19 +15,20 @@
 <table class="table table-hover border border-dark border-2 rounded table-bordered table-striped">
 	<thead class="thead-dark">
 		<tr>
-		  <th scope="col">Chip ID</th>
 		  <th scope="col">Batch</th>
 		  <th scope="col">Wafer</th>
+		  <th scope="col">Chip</th>
 		</tr>
 	  </thead>
 
 	{% for basic_info in chip_info %}
+	  	
 		<tr>
-			<th scope="row"><a href=" {{ url_for('QA.qa')}} ">{{basic_info.id }}</a></th>
-			<td>{{ basic_info.batch }}</td>
-			<td>{{ basic_info.wafer }}</td>
+			<th scope="row"><a href=" {{ url_for('QA.qa')}} ">{{basic_info.wafer.batch.batch_number }}</a></th>
+			<td>{{ basic_info.wafer.wafer_number}}</td>
+			<td>{{ basic_info.chip }}</td>
 		</tr>
-		
+
 	{% endfor %}
 	
 	</table>

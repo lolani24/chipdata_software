@@ -5,28 +5,32 @@ from extensions import db
 class Batch(db.Model):
     __tablename__ = 'batch'
     id = db.Column(db.Integer, primary_key=True)
-    wafer = db.relationship('Wafer', backref ='batch') # wafer to batch
+    batch_number = db.Column(db.Integer)
+    wafers = db.relationship('Wafer', back_populates ='batch') # wafer to batch
 
 class Wafer(db.Model):
     __tablename__ = 'wafer'
     id = db.Column(db.Integer, primary_key=True)
+    wafer_number = db.Column(db.Integer)
     batch_id = db.Column(db.Integer, db.ForeignKey('batch.id') )
-    chip = db.relationship('Chip', backref ='wafer') #chip to wafer
-
+    chips = db.relationship('Chip', back_populates ='wafer') #chip to wafer
+    batch = db.relationship('Batch', back_populates = 'wafers')
 
 class Chip(db.Model):
     __tablename__ = 'chip'
     id = db.Column(db.Integer, primary_key=True)
-    chips = db.Column(db.String(2))
+    chip = db.Column(db.String(2))
     wafer_id = db.Column(db.Integer, db.ForeignKey('wafer.id') ) 
-    oqa = db.relationship('OQA', backref ='chip') #oqa to chip 
-    lqa = db.relationship('LQA', backref ='chip') #lqa to chip
-    eqa = db.relationship('EQA', backref ='chip') #eqa to chip 
+    wafer = db.relationship('Wafer', back_populates='chips')
+    oqa = db.relationship('OQA', back_populates ='chip') #oqa to chip 
+    lqa = db.relationship('LQA', back_populates ='chip') #lqa to chip
+    eqa = db.relationship('EQA', back_populates ='chip') #eqa to chip 
 
 class OQA(db.Model):
     __tablename__ = 'OQA'
     id = db.Column(db.Integer, primary_key=True, nullable = False)
     chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
+    chip = db.relationship('Chip', back_populates='oqa')
     channel_1 = db.Column(db.String)
     channel_2 = db.Column(db.String)
     channel_3 = db.Column(db.String)
@@ -37,6 +41,7 @@ class EQA(db.Model):
     __tablename__ = 'EQA'
     id = db.Column(db.Integer, primary_key=True, nullable = False)
     chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
+    chip = db.relationship('Chip', back_populates='eqa')
     Reschannel_1 = db.Column(db.String)
     Reschannel_2 = db.Column(db.String)
     Reschannel_3 = db.Column(db.String)
@@ -46,7 +51,8 @@ class EQA(db.Model):
 class LQA(db.Model):
     __tablename__ = 'LQA'
     id = db.Column(db.Integer, primary_key= True, nullable = False)
-    chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
+    chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') )
+    chip = db.relationship('Chip', back_populates='lqa') 
     channel_1_min = db.Column(db.String)
     channel_1_max = db.Column(db.String)
     channel_1_slope = db.Column(db.String)
