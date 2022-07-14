@@ -6,7 +6,9 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField, Valid
 from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 from extensions import db
-from chipdata.models.chipdata import QA, EQA, LQA
+from chipdata.models.chipdata import Batch, Wafer, Chip, OQA, EQA, LQA
+from db_utils import get_or_create #either finds an exisiting row or creates a new one 
+
 
 
 QA_blueprint = Blueprint('QA', __name__, template_folder='templates')
@@ -17,7 +19,7 @@ lqa_success = False
 
 #OQA Form 
 
-class QAForm(FlaskForm):
+class OQAForm(FlaskForm):
     channel_1 = SelectField('Channel 1', choices=[('Good'),('Bad')])
     channel_2 = SelectField('Channel 2', choices=[('Good'),('Bad')])
     channel_3 = SelectField('Channel 3', choices=[('Good'),('Bad')])
@@ -30,12 +32,12 @@ eqa_success=None
 lqa_success=None
 
 @QA_blueprint.route('/OQA', methods=['POST', 'GET'])
-def qa():
-    qa = None
-    form = QAForm()
+def oqa():
+    oqa = None
+    form = OQAForm()
     if form.validate_on_submit():
-        qa = QA(channel_1=form.channel_1.data, channel_2=form.channel_2.data, channel_3=form.channel_3.data, channel_4=form.channel_4.data, channel_5=form.channel_5.data) 
-        db.session.add(qa)
+        oqa = OQA(channel_1=form.channel_1.data, channel_2=form.channel_2.data, channel_3=form.channel_3.data, channel_4=form.channel_4.data, channel_5=form.channel_5.data) 
+        db.session.add(oqa)
         db.session.commit()
         form.channel_1.data =''
         form.channel_2.data =''

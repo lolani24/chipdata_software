@@ -1,7 +1,7 @@
 {% if before_login == True %} <!-- before_login == true -->
-<nav class="navbar navbar-expand-lg" style="background-color:  #9ab973  ;">
+<nav class="navbar navbar-expand-lg" style="background-color:  #4682b4 ;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Chip Software</a>
+    <a class="navbar-brand" href="{{ url_for('home.home')}}">Chip Software</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,7 +23,7 @@
   {% set correct_login = true %} 
 <nav class="navbar navbar-expand-lg" style="background-color:  #4682b4  ;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Chip Software</a>
+    <a class="navbar-brand" href="{{ url_for('home.home')}}">Chip Software</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,12 +35,11 @@
         <li class="nav-item active">
           <a class="nav-link active"  href="{{ url_for('chip.chip')}}">Chip</a>
         </li>
-
        <!--  <li class="nav-item active">
           <a class="nav-link active" href="{{ url_for('chip.data')}}">Data</a>
         </li> -->
         <li class="nav-item active">
-          <a class="nav-link active" href="{{ url_for('QA.qa')}}">OQA</a>
+          <a class="nav-link active" href="{{ url_for('QA.oqa')}}">OQA</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link active" href="{{ url_for('QA.eqa')}}">EQA</a>
