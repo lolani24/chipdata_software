@@ -9,15 +9,15 @@
 
 {% if lqa_success == True %}
 	<h1>Input LQA Data</h1>
-	<div class="row justify-content-md-center ">
-		<div class="col-md-auto">
+	<div class="row justify-content-center ">
+		<div class="col-auto">
 			<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
 				<section style="font-size:20px">
-					<div class="col-md-auto">
+					<div class="col-auto">
 						<p class="fw-bold my-4 text-success">Form submitted successfully.</p>
 					</div>
-						<div class="row justify-content-md-center ">	
-							<div class="col-md-auto">
+						<div class="row justify-content-center ">	
+							<div class="col-auto">
 								<a role="button" class="btn btn-primary btn-md my-3" href="{{ url_for('QA.eqa')}}">Back</a>
 								<a role="button" class="btn btn-success btn-md my-3" href="{{ url_for('home.home')}}">Home</a>
 							</div>	
@@ -29,8 +29,8 @@
 	</div>
 {% elif lqa_success == False %}
 	<h1>Input LQA Data</h1>
-	<div class="row justify-content-md-center ">
-		<div class="col-md-auto">
+	<div class="row justify-content-center ">
+		<div class="col-auto">
 			<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
 				<section style="font-size:20px">
 					<form method="POST">
@@ -89,8 +89,8 @@
 						{{ form.channel_5_slope.label(class="form-label") }}
 						{{form.channel_5_slope}}
 						<br/>
-						<div class="col-md-4 offset-md-4">
-							<div class="row justify-content-md-center">
+						<div class="col-4 offset-4">
+							<div class="row justify-content-center">
 								{{form.submit(class="btn btn-secondary btn-md my-4") }}
 								<br/>
 							</div>	
