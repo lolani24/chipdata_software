@@ -190,6 +190,32 @@
     <a class="btn btn-secondary btn-lg active my-5 border-dark border-2" style="width: 150px; height: 65px; font-size: 30px;" href="{{ url_for('chip.chip')}}"  role="button" aria-="true">Input</a>
 </div>
 
+<form method="POST">
+  {{ form.hidden_tag() }}
+
+  {{ form.batch.label(class="form-label") }}
+
+  {{ form.batch(class="form-control") }}
+  <br/>
+
+  {{ form.wafer.label(class="form-label") }}
+
+  {{ form.wafer(class="form-control") }}
+  <br/>
+
+  {{ form.chip.label(class="form-label") }}
+
+  {{ form.chip(class="form-control") }}
+  <br/>
+  <div class="col-md-4 offset-md-4">
+    <div class="row justify-content-md-center">
+      {{form.submit(class="btn btn-secondary btn-md my-3") }}
+      <br/>
+    </div>	
+  </div>
+
+</form>
+
 <head> 
   <style>
     .whole {

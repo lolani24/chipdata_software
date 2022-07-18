@@ -25,6 +25,7 @@ class OQAForm(FlaskForm):
     channel_3 = SelectField('Channel 3', choices=[('Good'),('Bad')])
     channel_4 = SelectField('Channel 4', choices=[('Good'),('Bad')])
     channel_5 = SelectField('Channel 5', choices=[('Good'),('Bad')])
+    note = StringField('Notes', validators=[DataRequired()])
     submit = SubmitField("Submit")
 
 qa_success=None
@@ -36,14 +37,16 @@ def oqa():
     oqa = None
     form = OQAForm()
     if form.validate_on_submit():
-        oqa = OQA(channel_1=form.channel_1.data, channel_2=form.channel_2.data, channel_3=form.channel_3.data, channel_4=form.channel_4.data, channel_5=form.channel_5.data) 
-        db.session.add(oqa)
-        db.session.commit()
-        form.channel_1.data =''
+
+        channels = get_or_create(db.session, OQA, channel_1= form.channel_1.data,
+                                 channel_2=form.channel_2.data, channel_3=form.channel_3.data,
+                                 channel_4=form.channel_4.data, channel_5=form.channel_5.data,
+                                 note=form.note.data)
         form.channel_2.data =''
         form.channel_3.data = ''
         form.channel_4.data =''
         form.channel_5.data=''
+        form.note.data=''
         return render_template('qa.html', form=form, correct_login = True, before_login = False, qa_success=True)
     else:
         return render_template('qa.html', form = form, correct_login = True, before_login = False, qa_success = False)

@@ -36,6 +36,7 @@ class OQA(db.Model):
     channel_3 = db.Column(db.String)
     channel_4 = db.Column(db.String)
     channel_5 = db.Column(db.String)
+    note = db.Column(db.String)
     
 class EQA(db.Model):
     __tablename__ = 'EQA'
