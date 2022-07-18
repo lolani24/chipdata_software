@@ -8,17 +8,17 @@
 </head>
 {% if chip_info_v == True %}
 	<h1>Input Chip Data</h1>
-	<div class="col-md-4 offset-md-4">
-		<div class="row justify-content-md-center">
+	<div class="col-4 offset-4">
+		<div class="row justify-content-center">
 			<div class="my-3 py-4 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de;">
 				<section style="font-size:20px">	
-						<div class="row justify-content-md-center ">	
-							<div class="col-md-auto">
+						<div class="row justify-content-center ">	
+							<div class="col-auto">
 								<p class="fw-bold lh-1 text-success">Form submitted successfully.</p>
 							</div>
 						</div>
-						<div class="row justify-content-md-center ">	
-							<div class="col-md-auto">
+						<div class="row justify-content-center ">	
+							<div class="col-auto">
 
 								<a role="button" class="btn btn-primary btn=md my-3" href="{{ url_for('home.home')}}">Back</a>
 								<a role="button" class="btn btn-success btn-md my-3" href="{{ url_for('QA.qa')}}">Next</a>
@@ -33,8 +33,8 @@
 	</div>
 {% elif chip_info_v==False %}
 	<h1>Input Chip Data</h1>
-	<div class="col-md-4 offset-md-4">
-		<div class="row justify-content-md-center">
+	<div class="col-4 offset-4">
+		<div class="row justify-content-center">
 			<div class="my-3 py-4 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de;">
 				<section style="font-size:20px">	
 					<form method="POST">
@@ -54,8 +54,8 @@
 
 						{{ form.chip(class="form-control") }}
 						<br/>
-						<div class="col-md-4 offset-md-4">
-							<div class="row justify-content-md-center">
+						<div class="col-4 offset-4">
+							<div class="row justify-content-center">
 								{{form.submit(class="btn btn-secondary btn-md my-3") }}
 								<br/>
 							</div>	
