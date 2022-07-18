@@ -10,15 +10,17 @@
 <h1>Input OQA Data</h1>
 {% if qa_success == True %}
 <div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 400px; height:200px;">
-	<div class="row justify-content-md-center">
-		<div class="col-md-auto">
+	<div class="row justify-content-center">
+		<div class="col-auto">
 			<section style="font-size:20px">
-				<div class="col-md-auto">
+				<div class="col-auto">
 					<p class="fw-bold my-5 lh-1 text-success">Form submitted successfully.</p>
 				</div>
+
 					<div class="row justify-content-md-center ">	
 						<div class="col-md-auto">
 							<a role="button" class="btn btn-primary btn-md" href="{{ url_for('QA.oqa')}}">Back</a>
+
 							<a role="button" class="btn btn-success btn-md" href="{{ url_for('QA.eqa')}}">Next</a>
 						</div>	
 					</div>
@@ -27,8 +29,8 @@
 </div>
 {% elif qa_success==False %}
 <div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 400px; height:325px;">
-	<div class="row justify-content-md-center">
-		<div class="col-md-auto">
+	<div class="row justify-content-center">
+		<div class="col-auto">
 			<section style="font-size:20px">
 					<form method="POST">
 						{{form.csrf_token}}
@@ -48,11 +50,13 @@
 						{{ form.channel_5.label(class="form-label px-4") }}
 						{{form.channel_5(class="form-label mx-4")}}
 						<br/>
+
 						{{ form.note.label(class="form-label px-4") }}
 						{{form.note(class="form-label")}}
 						<br/>
 						<div class="col-md-4 offset-md-4">
 							<div class="row justify-content-md-center">
+
 								{{form.submit(class="btn btn-secondary btn-md my-3") }}
 								<br/>
 							</div>	

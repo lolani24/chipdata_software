@@ -3,7 +3,7 @@
 
 {% if incorrect_login == True %}
  <form action="{{ url_for("auth.authorize")}}" method="post">
-  <div class="col-md-4 offset-xl-4">
+  <div class="col-4 offset-4">
     <div class="my-5">
       <div>
         <h1 class="container my-3">Login</h1>
@@ -28,7 +28,7 @@
 
 {% else %}
 <form action="{{ url_for("auth.authorize")}}" method="post">
-  <div class="col-md-4 offset-xl-4">
+  <div class="col-4 offset-4">
     <div class="my-5">
       <div>
         <h1 class="container my-3">Login</h1>
