@@ -32,11 +32,15 @@ class OQA(db.Model):
     chip_id = db.Column(db.Integer, db.ForeignKey('chip.id') ) 
     chip = db.relationship('Chip', back_populates='oqa')
     channel_1 = db.Column(db.String)
+    channel_1_note = db.Column(db.String)
     channel_2 = db.Column(db.String)
+    channel_2_note = db.Column(db.String)
     channel_3 = db.Column(db.String)
+    channel_3_note = db.Column(db.String)
     channel_4 = db.Column(db.String)
+    channel_4_note = db.Column(db.String)
     channel_5 = db.Column(db.String)
-    note = db.Column(db.String)
+    channel_5_note = db.Column(db.String)
     
 class EQA(db.Model):
     __tablename__ = 'EQA'
