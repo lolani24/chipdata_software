@@ -30,7 +30,7 @@ class OQAForm(FlaskForm):
     channel_4 = SelectField('Channel 4', choices=[('Good'),('Bad')])
     channel_4_note = StringField('Channel 4 Notes')
     channel_5 = SelectField('Channel 5', choices=[('Good'),('Bad')])
-    channel_5_note = StringField('Channel 1 Notes')
+    channel_5_note = StringField('Channel 5 Notes')
     submit = SubmitField("Submit")
 
 
@@ -44,9 +44,9 @@ def oqa(chip_id):
     if form.validate_on_submit():
         chip_info = Chip.query.filter_by(id=chip_id).first()
         channels = get_or_create(db.session, OQA, channel_1= form.channel_1.data,channel_1_note=form.channel_1_note.data,
-                                 channel_2=form.channel_2.data, channel_3=form.channel_3.data,
-                                 channel_4=form.channel_4.data, channel_5=form.channel_5.data,
-                                  chip_id = chip_info.id )
+                                 channel_2=form.channel_2.data, channel_2_note=form.channel_2_note.data, channel_3=form.channel_3.data, 
+                                 channel_3_note=form.channel_3_note.data, channel_4=form.channel_4.data, channel_4_note=form.channel_4_note.data, 
+                                 channel_5=form.channel_5.data, channel_5_note=form.channel_5_note.data, chip_id = chip_info.id )
         form.channel_1.data =''
         form.channel_1_note.data = ''
         form.channel_2.data =''
