@@ -24,7 +24,7 @@ class ChipForm(FlaskForm):
                                     ('E1'),('E2'),('E3'),('E4'),('E5'),('E6'),('E7'),('E8'),('E9'),
                                     ('F1'),('F2'),('F3'),('F4'),('F5'),('F6'),('F7'),
                                     ('G1'),('G2'),('G3'),('G4'),('G5')
-                                    ])
+                                    ], validators=[DataRequired()])
 	wafer = StringField("Wafer Number", validators=[DataRequired()])
 	batch = StringField("Batch Number", validators=[DataRequired()])
 	submit = SubmitField("Submit")
@@ -39,30 +39,21 @@ def chip():
         form.batch.data=''
         form.wafer.data=''
         form.chip.data=''
-        return render_template('simo.html', form=form, correct_login = True, before_login = False, chip_info_v = True)
+        return redirect(url_for('chip.datatable',chip_id = chip.id))
     else:
-        return render_template('simo.html', form =form, correct_login = True, before_login = False, chip_info_v = False)
+        return render_template('simo.html', form=form, correct_login = True, before_login = False, chip_info_v = False)
     
+@chip_blueprint.route('/datatable/<int:chip_id>')
+def datatable(chip_id):
+    chip_info = Chip.query.filter_by(id=chip_id).first()
+    oqa_info = OQA.query.filter_by(id=chip_id).first()
+    eqa_info = EQA.query.filter_by(id=chip_id).first()
+    lqa_info = LQA.query.filter_by(id=chip_id).first()
+    return render_template ('datatable.html', chip_info=chip_info, oqa_info = oqa_info, eqa_info = eqa_info, lqa_info = lqa_info, correct_login = True, before_login = False)
 
 
 
-# Basic Data Table 
-@chip_blueprint.route('/data')
-def data():
-    chip_info = Chip.query.order_by(Chip.chip)
-    
-    return render_template("datatable.html", chip_info=chip_info, correct_login = True, before_login = False)
 
-
-# Chip Interface
-""" @chip_blueprint.route('/simo')
-def simo():
-    return render_template("simo.html", form = form, correct_login = True, before_login = False)
-
-@chip_blueprint.route('/me')
-def me():
-    return render_template("me.html", form=form, correct_login = True, before_login = False)
- """
 
 
 

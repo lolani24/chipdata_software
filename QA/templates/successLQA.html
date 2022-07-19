@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+	h1{text-align: center;}
+</style>
+</head>
+
+<h1>Input LQA Data</h1>
+<div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 400px; height:200px;">
+	<div class="row justify-content-center">
+		<div class="col-auto">
+			<section style="font-size:20px">
+				<div class="col-auto">
+					<p class="fw-bold my-5 lh-1 text-success">Form submitted successfully.</p>
+				</div>
+
+					<div class="row justify-content-md-center ">	
+						<div class="col-md-auto">
+							<a role="button" class="btn btn-primary btn-md" href="{{ url_for('chip.datatable',chip_id = chip_info.id)}}">Back</a>
+
+							<a role="button" class="btn btn-success btn-md" href="{{ url_for('chip.chip')}}">Home</a>
+						</div>	
+					</div>
+			</section>	
+	</div>
+</div>
+{% endblock %}
