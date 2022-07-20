@@ -11,85 +11,89 @@
 <h1>SiMo Chip Chart: {{chip_info.wafer.batch.batch_number}}, {{chip_info.wafer.wafer_number}}, {{chip_info.chip}}</h1>
 
 <br/><br/>
+<div class="row justify_content_center">
+	<div class="col-10 offset-1">
+		<table class=" table table-hover border thead-dark border-dark border-2 rounded table-bordered table-striped" style="background-color: #d8e3f0;" >
 
-<table class=" table table-hover border border-dark border-2 rounded table-bordered " style="background-color: #b0c4de" >
+				<thead class="thead-dark">
+					<tr>
+					<th class="text-center" scope="col">Channels</th>
+					<th class="text-center"scope="col">OQA</th>
+					<th class="text-center"scope="col">OQA Notes</th>
+					<th class="text-center" scope="col">Resistence</th>
+					<th class="text-center" scope="col">Minimal Current</th>
+					<th class="text-center" scope="col">Maximum Current</th>
+					<th class="text-center" scope="col">Dirac Voltage</th>
+					<th class="text-center" scope="col">Slope</th>
+					</tr>
+				</thead>
 
-		<thead class="thead-dark">
-			<tr>
-			<th class="text-center" scope="col">Channels</th>
-			<th class="text-center"scope="col">OQA</th>
-			<th class="text-center"scope="col">OQA Notes</th>
-			<th class="text-center" scope="col">Resistence</th>
-			<th class="text-center" scope="col">Minimal Current</th>
-			<th class="text-center" scope="col">Maximum Current</th>
-			<th class="text-center" scope="col">Dirac Voltage</th>
-			<th class="text-center" scope="col">Slope</th>
-			</tr>
-		</thead>
+				<tbody>
+					<tr>
+						<th class="text-center" scope="row">Channel 1</th>
+						<td class="text-center">{{oqa_info.channel_1}}</td>
+						<td class="text-center">{{oqa_info.channel_1_note}}</td>
+						<td class="text-center">{{eqa_info.Reschannel_1}}</td>
+						<td class="text-center">{{lqa_info.channel_1_min}}</td>
+						<td class="text-center">{{lqa_info.channel_1_max}}</td>
+						<td class="text-center">{{lqa_info.channel_1_dirac_voltage}}</td>
+						<td class="text-center">{{lqa_info.channel_1_slope}}</td>
+					</tr>
+					<tr>
+						<th class="text-center" scope="row">Channel 2</th>
+						<td class="text-center">{{oqa_info.channel_2}}</td>
+						<td class="text-center">{{oqa_info.channel_2_note}}</td>
+						<td class="text-center">{{eqa_info.Reschannel_2}}</td>
+						<td class="text-center">{{lqa_info.channel_2_min}}</td>
+						<td class="text-center">{{lqa_info.channel_2_max}}</td>
+						<td class="text-center">{{lqa_info.channel_2_dirac_voltage}}</td>
+						<td class="text-center">{{lqa_info.channel_2_slope}}</td>
+					</tr>
+					<tr>
+						<th class="text-center" scope="row">Channel 3</th>
+						<td class="text-center">{{oqa_info.channel_3}}</td>
+						<td class="text-center">{{oqa_info.channel_3_note}}</td>
+						<td class="text-center">{{eqa_info.Reschannel_3}}</td>
+						<td class="text-center">{{lqa_info.channel_3_min}}</td>
+						<td class="text-center">{{lqa_info.channel_3_max}}</td>
+						<td class="text-center">{{lqa_info.channel_3_dirac_voltage}}</td>
+						<td class="text-center">{{lqa_info.channel_3_slope}}</td>
+					</tr>
+					<tr>
+						<th class="text-center" scope="row">Channel 4</th>
+						<td class="text-center">{{oqa_info.channel_4}}</td>
+						<td class="text-center">{{oqa_info.channel_4_note}}</td>
+						<td class="text-center">{{eqa_info.Reschannel_4}}</td>
+						<td class="text-center">{{lqa_info.channel_4_min}}</td>
+						<td class="text-center">{{lqa_info.channel_4_max}}</td>
+						<td class="text-center">{{lqa_info.channel_4_dirac_voltage}}</td>
+						<td class="text-center">{{lqa_info.channel_4_slope}}</td>
+					</tr>
+					<tr>
+						<th class="text-center" scope="row">Channel 5</th>
+						<td class="text-center">{{oqa_info.channel_5}}</td>
+						<td class="text-center">{{oqa_info.channel_5_note}}</td>
+						<td class="text-center">{{eqa_info.Reschannel_5}}</td>
+						<td class="text-center">{{lqa_info.channel_5_min}}</td>
+						<td class="text-center">{{lqa_info.channel_5_max}}</td>
+						<td class="text-center">{{lqa_info.channel_5_dirac_voltage}}</td>
+						<td class="text-center">{{lqa_info.channel_5_slope}}</td>
+					</tr>
+				</tbody>
+					
 
-		<tbody>
-			<tr>
-				<th class="text-center" scope="row">Channel 1</th>
-				<td class="text-center">{{oqa_info.channel_1}}</td>
-				<td class="text-center">{{oqa_info.channel_1_note}}</td>
-				<td class="text-center">{{eqa_info.Reschannel_1}}</td>
-				<td class="text-center">{{lqa_info.channel_1_min}}</td>
-				<td class="text-center">{{lqa_info.channel_1_max}}</td>
-				<td class="text-center">{{lqa_info.channel_1_dirac_voltage}}</td>
-				<td class="text-center">{{lqa_info.channel_1_slope}}</td>
-			</tr>
-			<tr>
-				<th class="text-center" scope="row">Channel 2</th>
-				<td class="text-center">{{oqa_info.channel_2}}</td>
-				<td class="text-center">{{oqa_info.channel_2_note}}</td>
-				<td class="text-center">{{eqa_info.Reschannel_2}}</td>
-				<td class="text-center">{{lqa_info.channel_2_min}}</td>
-				<td class="text-center">{{lqa_info.channel_2_max}}</td>
-				<td class="text-center">{{lqa_info.channel_2_dirac_voltage}}</td>
-				<td class="text-center">{{lqa_info.channel_2_slope}}</td>
-			</tr>
-			<tr>
-				<th class="text-center" scope="row">Channel 3</th>
-				<td class="text-center">{{oqa_info.channel_3}}</td>
-				<td class="text-center">{{oqa_info.channel_3_note}}</td>
-				<td class="text-center">{{eqa_info.Reschannel_3}}</td>
-				<td class="text-center">{{lqa_info.channel_3_min}}</td>
-				<td class="text-center">{{lqa_info.channel_3_max}}</td>
-				<td class="text-center">{{lqa_info.channel_3_dirac_voltage}}</td>
-				<td class="text-center">{{lqa_info.channel_3_slope}}</td>
-			</tr>
-			<tr>
-				<th class="text-center" scope="row">Channel 4</th>
-				<td class="text-center">{{oqa_info.channel_4}}</td>
-				<td class="text-center">{{oqa_info.channel_4_note}}</td>
-				<td class="text-center">{{eqa_info.Reschannel_4}}</td>
-				<td class="text-center">{{lqa_info.channel_4_min}}</td>
-				<td class="text-center">{{lqa_info.channel_4_max}}</td>
-				<td class="text-center">{{lqa_info.channel_4_dirac_voltage}}</td>
-				<td class="text-center">{{lqa_info.channel_4_slope}}</td>
-			</tr>
-			<tr>
-				<th class="text-center" scope="row">Channel 5</th>
-				<td class="text-center">{{oqa_info.channel_5}}</td>
-				<td class="text-center">{{oqa_info.channel_5_note}}</td>
-				<td class="text-center">{{eqa_info.Reschannel_5}}</td>
-				<td class="text-center">{{lqa_info.channel_5_min}}</td>
-				<td class="text-center">{{lqa_info.channel_5_max}}</td>
-				<td class="text-center">{{lqa_info.channel_5_dirac_voltage}}</td>
-				<td class="text-center">{{lqa_info.channel_5_slope}}</td>
-			</tr>
-		</tbody>
-			
 
-		
-</table>
-
-<a href="{{ url_for('chip.chip')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back</a>
-<a href="{{ url_for('QA.oqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">OQA</a>
-<a href="{{ url_for('QA.eqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">EQA</a>
-<a href="{{ url_for('QA.lqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">LQA</a>
-<a href="{{ url_for('QA.Update', chip_id = chip_info.id)}}" class="btn btn-success  btn-lg active" role="button" aria-pressed="true">Edit</a>
-
+				
+		</table>
+	</div>
+</div>
+<div class="col-auto offset-8">
+	<a href="{{ url_for('chip.chip')}}" class="btn btn-secondary btn-md active m-1" role="button" aria-pressed="true">Back</a>
+	<a href="{{ url_for('QA.oqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-md active m-1" role="button" aria-pressed="true">OQA</a>
+	<a href="{{ url_for('QA.eqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-md active m-1" role="button" aria-pressed="true">EQA</a>
+	<a href="{{ url_for('QA.lqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-md active m-1" role="button" aria-pressed="true">LQA</a>
+	<a href="#" class="btn btn-success  btn-md active m-1" role="button" aria-pressed="true">Edit</a>
+</div>
 
 {% endblock %}
 

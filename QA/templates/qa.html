@@ -9,9 +9,9 @@
 
 <h1>Input OQA Data</h1>
 
-<div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 400px; height:325px;">
-	<div class="row justify-content-center">
-		<div class="col-auto">
+<div class="row justify-content-center">
+	<div class="col-auto">
+		<div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 475px; height:525px;">
 			<section style="font-size:20px">
 					<form method="POST">
 						{{form.csrf_token}}
@@ -46,9 +46,8 @@
 						{{ form.channel_5_note.label(class="form-label px-4") }}
 						{{form.channel_5_note(class="form-label")}}
 						<br/>
-						<div class="col-md-4 offset-md-4">
-							<div class="row justify-content-md-center">
-
+						<div class="col-4 offset-4">
+							<div class="row justify-content-center">	
 								{{form.submit(class="btn btn-secondary btn-md my-3") }}
 								<br/>
 							</div>	
@@ -60,12 +59,7 @@
 	</div>
 </div>
 
-<head> 
-	<style>
-	  .container {
-		white-space: nowrap;
-	  }
-	</style>
-  </head> 
+
+
 
 {% endblock %}
