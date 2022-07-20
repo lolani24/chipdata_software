@@ -12,7 +12,7 @@
 
 <br/><br/>
 
-<table class=" table table-hover border border-dark border-2 rounded table-bordered table-striped" style="background-color: #b0c4de" >
+<table class=" table table-hover border border-dark border-2 rounded table-bordered " style="background-color: #b0c4de" >
 
 		<thead class="thead-dark">
 			<tr>
@@ -88,7 +88,7 @@
 <a href="{{ url_for('QA.oqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">OQA</a>
 <a href="{{ url_for('QA.eqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">EQA</a>
 <a href="{{ url_for('QA.lqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">LQA</a>
-<a href="#" class="btn btn-success  btn-lg active" role="button" aria-pressed="true">Edit</a>
+<a href="{{ url_for('QA.Update', chip_id = chip_info.id)}}" class="btn btn-success  btn-lg active" role="button" aria-pressed="true">Edit</a>
 
 
 {% endblock %}
