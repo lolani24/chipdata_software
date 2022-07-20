@@ -22,15 +22,15 @@ lqa_success = False
 
 class OQAForm(FlaskForm):
     channel_1 = SelectField('Channel 1', choices=[('Good'),('Bad')])
-    channel_1_note = StringField('Channel 1 Notes')
+    channel_1_note = StringField('Notes')
     channel_2 = SelectField('Channel 2', choices=[('Good'),('Bad')])
-    channel_2_note = StringField('Channel 2 Notes')
+    channel_2_note = StringField('Notes')
     channel_3 = SelectField('Channel 3', choices=[('Good'),('Bad')])
-    channel_3_note = StringField('Channel 3 Notes')
+    channel_3_note = StringField('Notes')
     channel_4 = SelectField('Channel 4', choices=[('Good'),('Bad')])
-    channel_4_note = StringField('Channel 4 Notes')
+    channel_4_note = StringField('Notes')
     channel_5 = SelectField('Channel 5', choices=[('Good'),('Bad')])
-    channel_5_note = StringField('Channel 5 Notes')
+    channel_5_note = StringField('Notes')
     submit = SubmitField("Submit")
 
 

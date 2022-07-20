@@ -92,7 +92,7 @@
 	<a href="{{ url_for('QA.oqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-md active m-1" role="button" aria-pressed="true">OQA</a>
 	<a href="{{ url_for('QA.eqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-md active m-1" role="button" aria-pressed="true">EQA</a>
 	<a href="{{ url_for('QA.lqa', chip_id = chip_info.id)}}" class="btn btn-primary btn-md active m-1" role="button" aria-pressed="true">LQA</a>
-	<a href="#" class="btn btn-success  btn-md active m-1" role="button" aria-pressed="true">Edit</a>
+	<a href="{{ url_for('QA.Update', chip_id = chip_info.id)}}" class="btn btn-success  btn-md active m-1" role="button" aria-pressed="true">Edit</a>
 </div>
 
 {% endblock %}
