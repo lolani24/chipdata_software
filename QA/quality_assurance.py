@@ -171,3 +171,42 @@ def lqa(chip_id):
 def successLQA(chip_id):
     chip_info = Chip.query.filter_by(id=chip_id).first()
     return render_template ('successLQA.html',  correct_login = True, before_login = False, chip_info=chip_info)
+
+#Update Forms Buttons
+@QA_blueprint.route('/update/<int:chip_id>')
+def Update(chip_id):
+    chip_info = Chip.query.filter_by(id=chip_id).first()
+    return render_template ('updateButtons.html',  correct_login = True, before_login = False, chip_info=chip_info)
+
+
+#Update OQA Form 
+@QA_blueprint.route('/updateOQA/<int:chip_id>', methods=['GET', 'POST'])
+def Update_OQA(chip_id):
+    #chip_info = Chip.query.filter_by(id=chip_id).first()
+    form = OQAForm()
+    oqa_to_update = OQA.query.filter_by(chip_id=chip_id).first()
+    print(oqa_to_update)
+    if request.method == "POST":
+        oqa_to_update.channel_1 = request.form['channel_1']
+        oqa_to_update.channel_1_note = request.form['channel_1_note']
+        oqa_to_update.channel_2 = request.form['channel_2']
+        oqa_to_update.channel_2_note = request.form['channel_2_note']
+        oqa_to_update.channel_3 = request.form['channel_3']
+        oqa_to_update.channel_3_note = request.form['channel_3_note']
+        oqa_to_update.channel_4 = request.form['channel_4']
+        oqa_to_update.channel_4_note = request.form['channel_4_note']
+        oqa_to_update.channel_5 = request.form['channel_5']
+        oqa_to_update.channel_5_note = request.form['channel_5_note']
+        try:
+            db.session.commit()
+            return render_template('updateOQA.html', form=form, oqa_to_update=oqa_to_update, 
+                                    chip_id=chip_id,  correct_login = True, 
+                                    before_login = False)
+        except:
+            return render_template('updateOQA.html', form=form, oqa_to_update=oqa_to_update, 
+                                    chip_id=chip_id,  correct_login = True, 
+                                    before_login = False)
+    else:
+        return render_template('updateOQA.html', form=form, oqa_to_update=oqa_to_update, 
+                                    chip_id=chip_id,  correct_login = True, 
+                                    before_login = False)
