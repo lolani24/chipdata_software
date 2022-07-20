@@ -46,9 +46,9 @@ def chip():
 @chip_blueprint.route('/datatable/<int:chip_id>')
 def datatable(chip_id):
     chip_info = Chip.query.filter_by(id=chip_id).first()
-    oqa_info = OQA.query.filter_by(id=chip_id).first()
-    eqa_info = EQA.query.filter_by(id=chip_id).first()
-    lqa_info = LQA.query.filter_by(id=chip_id).first()
+    oqa_info = OQA.query.filter_by(chip_id=chip_id).first()
+    eqa_info = EQA.query.filter_by(chip_id=chip_id).first()
+    lqa_info = LQA.query.filter_by(chip_id=chip_id).first()
     return render_template ('datatable.html', chip_info=chip_info, oqa_info = oqa_info, eqa_info = eqa_info, lqa_info = lqa_info, correct_login = True, before_login = False)
 
 
