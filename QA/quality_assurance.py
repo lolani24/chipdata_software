@@ -191,7 +191,7 @@ def update_OQA(chip_id):
         flash('Updated Successfully!')
         return redirect(url_for('QA.successOQA', chip_id=oqa.chip_id))
     form = OQAForm(obj=oqa)
-    return render_template('updateOQA.html', oqa=oqa, form=form,chip_info=chip_info, correct_login = True, before_login = False)
+    return render_template('updateOQA.html', oqa=oqa, form=form, chip_info=chip_info, correct_login = True, before_login = False)
 
 
 #Update EQA Form 
@@ -203,7 +203,6 @@ def update_EQA(chip_id):
         form = EQAForm(formdata=request.form, obj=eqa)
         form.populate_obj(eqa)
         db.session.commit()
-        flash('Updated Successfully!')
         return redirect(url_for('QA.successEQA', chip_id=eqa.chip_id))
     form = EQAForm(obj=eqa)
     return render_template('updateEQA.html', eqa=eqa, form=form,chip_info=chip_info, correct_login = True, before_login = False)
