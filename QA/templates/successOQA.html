@@ -5,7 +5,9 @@
 {% if messages %}
 	{% for  msg in messages %}
 	<div class="row justify-content-center">
-		<div class=" col-auto">{{msg}}</div>
+		<div class=" col-auto">
+			<div class="alert alert-success p-3" role="alert">{{msg}}</div>
+		</div>
 	</div>
 	{% endfor %}
 {% endif %}

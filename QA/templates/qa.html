@@ -13,48 +13,52 @@
 	<div class="col-auto">
 		<div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 475px; height:525px;">
 			<section style="font-size:20px">
-					<form method="POST">
-						{{form.csrf_token}}
+				<div class="row justify-content-center">
+					<div class="col-auto">
+						<form method="POST">
+							{{form.csrf_token}}
+							<br/>
+							{{ form.channel_1.label(class="form-label px-4") }}
+							{{form.channel_1(class="form-label mx-4")}}
+							<br/>
+							{{ form.channel_1_note.label(class="form-label px-4") }}
+							{{form.channel_1_note(class="form-label")}}
+							<br/>
+							{{ form.channel_2.label(class="form-label px-4") }}
+							{{form.channel_2(class="form-label mx-4")}}
+							<br/>
+							{{ form.channel_2_note.label(class="form-label px-4") }}
+							{{form.channel_2_note(class="form-label")}}
+							<br/>
+							{{ form.channel_3.label(class="form-label px-4") }}
+							{{form.channel_3(class="form-label mx-4")}}
+							<br/>
+							{{ form.channel_3_note.label(class="form-label px-4") }}
+							{{form.channel_3_note(class="form-label")}}
+							<br/>
+							{{ form.channel_4.label(class="form-label px-4") }}
+							{{form.channel_4(class="form-label mx-4")}}
+							<br/>
+							{{ form.channel_4_note.label(class="form-label px-4") }}
+							{{form.channel_4_note(class="form-label")}}
+							<br/>
+							{{ form.channel_5.label(class="form-label px-4") }}
+							{{form.channel_5(class="form-label mx-4")}}
+							<br/>
+							{{ form.channel_5_note.label(class="form-label px-4") }}
+							{{form.channel_5_note(class="form-label")}}
+							<br/>
+							<div class="row justify-content-center">
+								<div class="col-auto">
+									<a role="button" class="btn btn-primary btn-md" href="#">Back</a>	
+									{{form.submit(class="btn btn-secondary btn-md my-3") }}
+								</div>
+							</div>
+						</div> 
 						<br/>
-						{{ form.channel_1.label(class="form-label px-4") }}
-						{{form.channel_1(class="form-label mx-4")}}
-						<br/>
-						{{ form.channel_1_note.label(class="form-label px-4") }}
-						{{form.channel_1_note(class="form-label")}}
-						<br/>
-						{{ form.channel_2.label(class="form-label px-4") }}
-						{{form.channel_2(class="form-label mx-4")}}
-						<br/>
-						{{ form.channel_2_note.label(class="form-label px-4") }}
-						{{form.channel_2_note(class="form-label")}}
-						<br/>
-						{{ form.channel_3.label(class="form-label px-4") }}
-						{{form.channel_3(class="form-label mx-4")}}
-						<br/>
-						{{ form.channel_3_note.label(class="form-label px-4") }}
-						{{form.channel_3_note(class="form-label")}}
-						<br/>
-						{{ form.channel_4.label(class="form-label px-4") }}
-						{{form.channel_4(class="form-label mx-4")}}
-						<br/>
-						{{ form.channel_4_note.label(class="form-label px-4") }}
-						{{form.channel_4_note(class="form-label")}}
-						<br/>
-						{{ form.channel_5.label(class="form-label px-4") }}
-						{{form.channel_5(class="form-label mx-4")}}
-						<br/>
-						{{ form.channel_5_note.label(class="form-label px-4") }}
-						{{form.channel_5_note(class="form-label")}}
-						<br/>
-						<div class="col-4 offset-4">
-							<div class="row justify-content-center">	
-								{{form.submit(class="btn btn-secondary btn-md my-3") }}
-								<br/>
-							</div>	
-						</div>
-					</div> 
-					<br/>
-				</form>
+					</form>
+				</div>
+			</div>
 		</section>	
 	</div>
 </div>
