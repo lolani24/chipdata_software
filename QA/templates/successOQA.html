@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+	{% for  msg in messages %}
+	<div class="row justify-content-center">
+		<div class=" col-auto">{{msg}}</div>
+	</div>
+	{% endfor %}
+{% endif %}
+{% endwith %}
+
 <head>
 <style>
 	h1{text-align: center;}
@@ -8,6 +18,7 @@
 </head>
 
 <h1>Input OQA Data</h1>
+
 <div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 400px; height:200px;">
 	<div class="row justify-content-center">
 		<div class="col-auto">

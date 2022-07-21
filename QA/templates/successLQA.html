@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+	{% for msg in messages %}
+	<div class="row justify-content-center">
+		<div class=" col-auto">{{msg}}</div>
+	</div>
+	{% endfor %}
+{% endif %}
+{% endwith %}
+
+
 <head>
 <style>
 	h1{text-align: center;}
