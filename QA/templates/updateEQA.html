@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+	h1{text-align: center;}
+</style>
+</head>
+
+	<h1>Update EQA Data</h1>
+	<div class="row justify-content-center">
+		<div class="col-auto">
+			<div class="my-3 px-4 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; position:relative;">
+				<section style="font-size:20px">
+					<form action="{{url_for('QA.update_EQA', chip_id = eqa.chip_id)}}" method="POST">
+						{{form.csrf_token}}
+						<br/>
+						{{ form.Reschannel_1.label(class="form-label") }}
+						{{form.Reschannel_1 (placeholder="                                     Ω")}}
+						<br/>
+						{{ form.Reschannel_2.label(class="form-label ") }}
+						{{form.Reschannel_2 (placeholder="                                     Ω")}}
+						<br/>
+						{{ form.Reschannel_3.label(class="form-label  ") }}
+						{{form.Reschannel_3 (placeholder="                                     Ω")}}
+						<br/>
+						{{ form.Reschannel_4.label(class="form-label ") }}
+						{{form.Reschannel_4 (placeholder="                                     Ω")}}
+						<br/>
+						{{ form.Reschannel_5.label(class="form-label ") }}
+						{{form.Reschannel_5 (placeholder="                                     Ω")}}
+						<br/>
+						<div class="col-4 offset-4">
+							<div class="row justify-content-center">
+								{{form.submit(class="btn btn-secondary btn-md my-4") }}
+								<br/>
+							</div>	
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+  
+{% endblock %}

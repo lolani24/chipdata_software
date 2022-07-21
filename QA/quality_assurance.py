@@ -174,39 +174,51 @@ def successLQA(chip_id):
 
 #Update Forms Buttons
 @QA_blueprint.route('/update/<int:chip_id>')
-def Update(chip_id):
+def update(chip_id):
     chip_info = Chip.query.filter_by(id=chip_id).first()
     return render_template ('updateButtons.html',  correct_login = True, before_login = False, chip_info=chip_info)
 
 
 #Update OQA Form 
-@QA_blueprint.route('/updateOQA/<int:chip_id>', methods=['GET', 'POST'])
-def Update_OQA(chip_id):
-    #chip_info = Chip.query.filter_by(id=chip_id).first()
-    form = OQAForm()
-    oqa_to_update = OQA.query.filter_by(chip_id=chip_id).first()
-    print(oqa_to_update)
-    if request.method == "POST":
-        oqa_to_update.channel_1 = request.form['channel_1']
-        oqa_to_update.channel_1_note = request.form['channel_1_note']
-        oqa_to_update.channel_2 = request.form['channel_2']
-        oqa_to_update.channel_2_note = request.form['channel_2_note']
-        oqa_to_update.channel_3 = request.form['channel_3']
-        oqa_to_update.channel_3_note = request.form['channel_3_note']
-        oqa_to_update.channel_4 = request.form['channel_4']
-        oqa_to_update.channel_4_note = request.form['channel_4_note']
-        oqa_to_update.channel_5 = request.form['channel_5']
-        oqa_to_update.channel_5_note = request.form['channel_5_note']
-        try:
-            db.session.commit()
-            return render_template('updateOQA.html', form=form, oqa_to_update=oqa_to_update, 
-                                    chip_id=chip_id,  correct_login = True, 
-                                    before_login = False)
-        except:
-            return render_template('updateOQA.html', form=form, oqa_to_update=oqa_to_update, 
-                                    chip_id=chip_id,  correct_login = True, 
-                                    before_login = False)
-    else:
-        return render_template('updateOQA.html', form=form, oqa_to_update=oqa_to_update, 
-                                    chip_id=chip_id,  correct_login = True, 
-                                    before_login = False)
+@QA_blueprint.route('/updateoqa/<int:chip_id>', methods=['GET', 'POST'])
+def update_OQA(chip_id):
+    chip_info = Chip.query.filter_by(id=chip_id).first()
+    oqa = OQA.query.filter(OQA.chip_id == chip_id).first()
+    if request.method =='POST':
+        form = OQAForm(formdata=request.form, obj=oqa)
+        form.populate_obj(oqa)
+        db.session.commit()
+        flash('Updated Successfully!')
+        return redirect(url_for('QA.successOQA', chip_id=oqa.chip_id))
+    form = OQAForm(obj=oqa)
+    return render_template('updateOQA.html', oqa=oqa, form=form,chip_info=chip_info, correct_login = True, before_login = False)
+
+
+#Update EQA Form 
+@QA_blueprint.route('/updateqa/<int:chip_id>', methods=['GET', 'POST'])
+def update_EQA(chip_id):
+    chip_info = Chip.query.filter_by(id=chip_id).first()
+    eqa = EQA.query.filter(EQA.chip_id == chip_id).first()
+    if request.method =='POST':
+        form = EQAForm(formdata=request.form, obj=eqa)
+        form.populate_obj(eqa)
+        db.session.commit()
+        flash('Updated Successfully!')
+        return redirect(url_for('QA.successEQA', chip_id=eqa.chip_id))
+    form = EQAForm(obj=eqa)
+    return render_template('updateEQA.html', eqa=eqa, form=form,chip_info=chip_info, correct_login = True, before_login = False)
+
+
+#Update LQA Form 
+@QA_blueprint.route('/updatelqa/<int:chip_id>', methods=['GET', 'POST'])
+def update_LQA(chip_id):
+    chip_info = Chip.query.filter_by(id=chip_id).first()
+    lqa = LQA.query.filter(LQA.chip_id == chip_id).first()
+    if request.method =='POST':
+        form = LQAForm(formdata=request.form, obj=lqa)
+        form.populate_obj(lqa)
+        db.session.commit()
+        flash('Updated Successfully!')
+        return redirect(url_for('QA.successLQA', chip_id=lqa.chip_id))
+    form = LQAForm(obj=lqa)
+    return render_template('updateLQA.html', lqa=lqa, form=form,chip_info=chip_info, correct_login = True, before_login = False)
