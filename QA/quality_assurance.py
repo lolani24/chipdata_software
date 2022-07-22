@@ -59,7 +59,8 @@ def oqa(chip_id):
         form.channel_5_note.data = ''
         return redirect(url_for('QA.successOQA',chip_id = chip_info.id))
     else:
-        return render_template('qa.html', form = form, correct_login = True, before_login = False, qa_success = False)
+        chip_info = Chip.query.filter_by(id=chip_id).first()
+        return render_template('qa.html', form = form, correct_login = True, before_login = False, qa_success = False, chip_info=chip_info)
 
 @QA_blueprint.route('/successOQA/<int:chip_id>')
 def successOQA(chip_id):
@@ -95,7 +96,8 @@ def eqa(chip_id):
         form.Reschannel_5.data=''
         return redirect(url_for('QA.successEQA',chip_id = chip_info.id))
     else:
-        return render_template('eqa.html', form = form, correct_login = True, before_login = False, eqa_success = False)
+        chip_info = Chip.query.filter_by(id=chip_id).first()
+        return render_template('eqa.html', form = form, chip_info=chip_info, correct_login = True, before_login = False, eqa_success = False)
 
 @QA_blueprint.route('/successOQA/<int:chip_id>')
 def successEQA(chip_id):
@@ -165,7 +167,8 @@ def lqa(chip_id):
         
         return redirect(url_for('QA.successLQA',chip_id = chip_info.id))
     else:
-        return render_template('lqa.html', form = form, correct_login = True, before_login = False, lqa_success = False)
+        chip_info = Chip.query.filter_by(id=chip_id).first()
+        return render_template('lqa.html', form = form, correct_login = True, before_login = False, lqa_success = False, chip_info=chip_info)
 
 @QA_blueprint.route('/successLQA/<int:chip_id>')
 def successLQA(chip_id):
