@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+	h1{text-align: center;}
+</style>
+</head>
+
+	<h1>Update LQA Data</h1>
+	<div class="row justify-content-center ">
+		<div class="col-auto">
+			<div class="my-3 px-5 container border border-dark border-2 rounded bg-opacity-50"  style="background-color: #b0c4de;">
+				<section style="font-size:20px">
+					<form action="{{url_for('QA.update_LQA', chip_id = lqa.chip_id)}}" method="POST">
+                        {{form.csrf_token}}
+						<br/>
+						{{ form.channel_1_min_ME.label(class="form-label") }}
+						{{form.channel_1_min_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_1_max_ME.label(class="form-label") }}
+						{{form.channel_1_max_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_1_dirac_voltage_ME.label(class="form-label") }}
+						{{form.channel_1_dirac_voltage_ME (placeholder="                                     V")}}
+						
+						<br/>
+						{{ form.channel_1_slope_ME.label(class="form-label") }}
+						{{form.channel_1_slope_ME}}
+						<br/>
+
+						<br/>
+						{{ form.channel_2_min_ME.label(class="form-label") }}
+						{{form.channel_2_min_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_2_max_ME.label(class="form-label") }}
+						{{form.channel_2_max_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_2_dirac_voltage_ME.label(class="form-label") }}
+						{{form.channel_2_dirac_voltage_ME (placeholder="                                     V")}}
+						
+						<br/>
+						{{ form.channel_2_slope_ME.label(class="form-label") }}
+						{{form.channel_2_slope_ME}}
+						<br/>
+
+						<br/>
+						{{ form.channel_3_min_ME.label(class="form-label") }}
+						{{form.channel_3_min_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_3_max_ME.label(class="form-label") }}
+						{{form.channel_3_max_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_3_dirac_voltage_ME.label(class="form-label") }}
+						{{form.channel_3_dirac_voltage_ME (placeholder="                                     V")}}
+						
+						<br/>
+						{{ form.channel_3_slope_ME.label(class="form-label") }}
+						{{form.channel_3_slope_ME}}
+						<br/>
+
+						<br/>
+						{{ form.channel_4_min_ME.label(class="form-label") }}
+						{{form.channel_4_min_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_4_max_ME.label(class="form-label") }}
+						{{form.channel_4_max_ME (placeholder="                                amps")}}
+						
+						<br/>
+						{{ form.channel_4_dirac_voltage_ME.label(class="form-label") }}
+						{{form.channel_4_dirac_voltage_ME (placeholder="                                           V")}}
+						
+						<br/>
+						{{ form.channel_4_slope_ME.label(class="form-label") }}
+						{{form.channel_4_slope_ME}}
+						<br/>
+
+						<br/>
+						{{ form.channel_5_min_ME.label(class="form-label") }}
+						{{form.channel_5_min_ME (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_5_max_ME.label(class="form-label") }}
+						{{form.channel_5_max_ME (placeholder="                                amps")}}
+						<br/>
+						{{ form.channel_5_dirac_voltage_ME.label(class="form-label") }}
+						{{form.channel_5_dirac_voltage_ME (placeholder="                                     V")}}
+						<br/>
+						{{ form.channel_5_slope_ME.label(class="form-label") }}
+						{{form.channel_5_slope_ME}}
+						<br/>
+						<div class="row justify-content-center">
+							<div class="col-auto">
+								<a role="button" class="btn btn-primary btn-md" href="{{ url_for('chip.datatable',chip_id = chip_info.id)}}">Back</a>	
+								{{form.submit(class="btn btn-secondary btn-md my-3") }}
+							</div>	
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>	
+	</div>
+
+{% endblock %}

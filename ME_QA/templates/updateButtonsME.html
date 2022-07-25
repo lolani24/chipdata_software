@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        h1{text-align: center;}
+    </style>
+    </head>
+    
+    <h1>Update Forms</h1>
+    <br/>
+    <!-- <div class="col-md-12 text-center"> -->
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="{{ url_for('QA_ME.update_OQAme', chipME_id = chipME_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">OQA</a>
+        <a href="{{ url_for('QA_ME.update_EQAme', chipME_id = chipME_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">EQA</a>
+        <a href="{{ url_for('QA_ME.update_LQAme', chipME_id = chipME_info.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">LQA</a>
+        <a href="{{ url_for('chipME.datatableME',chipME_id = chipME_info.id)}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back</a>
+    </div>
+            
+
+
+
+
+
+{% endblock %}

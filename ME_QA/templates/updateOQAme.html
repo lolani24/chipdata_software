@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <style>
+        h1{text-align: center;}
+    </style>
+    </head>
+    
+
+    <h1>Update OQA Data</h1>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="my-3 container border border-dark border-2 rounded bg-opacity-0"  style="background-color: #b0c4de; width: 475px; height:525px;">
+                <section style="font-size:20px">
+                    <form action="{{url_for('QA_ME.update_OQAme', chipME_id = oqaME.chipME_id)}}" method="POST">
+                        {{form.csrf_token}}
+                        <br/>
+                        {{ form.channel_1_ME.label(class="form-label px-4") }}
+                        {{form.channel_1_ME(class="form-label mx-4")}}
+                        <br/>
+                        {{ form.channel_1_note_ME.label(class="form-label px-4") }}
+                        {{form.channel_1_note_ME(class="form-label")}}
+                        <br/>
+                        {{ form.channel_2_ME.label(class="form-label px-4") }}
+                        {{form.channel_2_ME(class="form-label mx-4")}}
+                        <br/>
+                        {{ form.channel_2_note_ME.label(class="form-label px-4") }}
+                        {{form.channel_2_note_ME(class="form-label")}}
+                        <br/>
+                        {{ form.channel_3_ME.label(class="form-label px-4") }}
+                        {{form.channel_3_ME(class="form-label mx-4")}}
+                        <br/>
+                        {{ form.channel_3_note_ME.label(class="form-label px-4") }}
+                        {{form.channel_3_note_ME(class="form-label")}}
+                        <br/>
+                        {{ form.channel_4_ME.label(class="form-label px-4") }}
+                        {{form.channel_4_ME(class="form-label mx-4")}}
+                        <br/>
+                        {{ form.channel_4_note_ME.label(class="form-label px-4") }}
+                        {{form.channel_4_note_ME(class="form-label")}}
+                        <br/>
+                        {{ form.channel_5_ME.label(class="form-label px-4") }}
+                        {{form.channel_5_ME(class="form-label mx-4")}}
+                        <br/>
+                        {{ form.channel_5_note_ME.label(class="form-label px-4") }}
+                        {{form.channel_5_note_ME(class="form-label")}}
+                        <br/>
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <a role="button" class="btn btn-primary btn-md" href="{{ url_for('chipME.datatableME',chipME_id = chipME_info.id)}}">Back</a>	
+                                {{form.submit(class="btn btn-secondary btn-md my-3") }}
+                            </div>	
+                        </div>
+                    </div> 
+                    <br/>
+                </form>
+            </section>	
+        </div>
+    </div>
+    
+    
+    
+    
+{% endblock %}

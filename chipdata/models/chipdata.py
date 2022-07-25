@@ -78,3 +78,81 @@ class LQA(db.Model):
     channel_5_max = db.Column(db.String)
     channel_5_dirac_voltage = db.Column(db.String)
     channel_5_slope = db.Column(db.String)
+
+# ME Chip Tables 
+class BatchME(db.Model):
+    __tablename__ = 'batchME'
+    id = db.Column(db.Integer, primary_key=True)
+    batchME_number = db.Column(db.Integer)
+    wafersME = db.relationship('WaferME', back_populates ='batchME') # wafer to batch
+
+class WaferME(db.Model):
+    __tablename__ = 'waferME'
+    id = db.Column(db.Integer, primary_key=True)
+    waferME_number = db.Column(db.Integer)
+    batchME_id = db.Column(db.Integer, db.ForeignKey('batchME.id') )
+    chipsME = db.relationship('ChipME', back_populates ='waferME') #chip to wafer
+    batchME = db.relationship('BatchME', back_populates = 'wafersME')
+
+class ChipME(db.Model):
+    __tablename__ = 'chipME'
+    id = db.Column(db.Integer, primary_key=True)
+    chipME = db.Column(db.String(2))
+    waferME_id = db.Column(db.Integer, db.ForeignKey('waferME.id') ) 
+    waferME = db.relationship('WaferME', back_populates='chipsME')
+    oqaME = db.relationship('OQAme', back_populates ='chipME') #oqa to chip 
+    lqaME = db.relationship('LQAme', back_populates ='chipME') #lqa to chip
+    eqaME = db.relationship('EQAme', back_populates ='chipME') #eqa to chip 
+
+class OQAme(db.Model):
+    __tablename__ = 'OQAme'
+    id = db.Column(db.Integer, primary_key=True, nullable = False)
+    chipME_id = db.Column(db.Integer, db.ForeignKey('chipME.id') ) 
+    chipME = db.relationship('ChipME', back_populates='oqaME')
+    channel_1_ME = db.Column(db.String)
+    channel_1_note_ME = db.Column(db.String)
+    channel_2_ME = db.Column(db.String)
+    channel_2_note_ME = db.Column(db.String)
+    channel_3_ME = db.Column(db.String)
+    channel_3_note_ME = db.Column(db.String)
+    channel_4_ME = db.Column(db.String)
+    channel_4_note_ME = db.Column(db.String)
+    channel_5_ME = db.Column(db.String)
+    channel_5_note_ME = db.Column(db.String)
+    
+class EQAme(db.Model):
+    __tablename__ = 'EQAme'
+    id = db.Column(db.Integer, primary_key=True, nullable = False)
+    chipME_id = db.Column(db.Integer, db.ForeignKey('chipME.id') ) 
+    chipME = db.relationship('ChipME', back_populates='eqaME')
+    Reschannel_1_ME = db.Column(db.String)
+    Reschannel_2_ME = db.Column(db.String)
+    Reschannel_3_ME = db.Column(db.String)
+    Reschannel_4_ME = db.Column(db.String)
+    Reschannel_5_ME = db.Column(db.String)
+
+class LQAme(db.Model):
+    __tablename__ = 'LQAme'
+    id = db.Column(db.Integer, primary_key= True, nullable = False)
+    chipME_id = db.Column(db.Integer, db.ForeignKey('chipME.id') )
+    chipME = db.relationship('ChipME', back_populates='lqaME') 
+    channel_1_min_ME = db.Column(db.String)
+    channel_1_max_ME = db.Column(db.String)
+    channel_1_dirac_voltage_ME = db.Column(db.String)
+    channel_1_slope_ME = db.Column(db.String)
+    channel_2_min_ME = db.Column(db.String)
+    channel_2_max_ME = db.Column(db.String)
+    channel_2_dirac_voltage_ME = db.Column(db.String)
+    channel_2_slope_ME = db.Column(db.String)
+    channel_3_min_ME = db.Column(db.String)
+    channel_3_max_ME = db.Column(db.String)
+    channel_3_dirac_voltage_ME = db.Column(db.String)
+    channel_3_slope_ME = db.Column(db.String)
+    channel_4_min_ME = db.Column(db.String)
+    channel_4_max_ME = db.Column(db.String)
+    channel_4_dirac_voltage_ME = db.Column(db.String)
+    channel_4_slope_ME = db.Column(db.String)
+    channel_5_min_ME = db.Column(db.String)
+    channel_5_max_ME = db.Column(db.String)
+    channel_5_dirac_voltage_ME = db.Column(db.String)
+    channel_5_slope_ME = db.Column(db.String)
