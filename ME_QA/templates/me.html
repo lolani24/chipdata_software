@@ -85,34 +85,57 @@
       </div>
     </div>
   </div>
-  <div class="button_group">
-  </br>
-  </br>
-  </br>
-  </br>
-    <a class="btn active my-5 border-2 border-dark btn-lg btn-secondary" style="width: 150px; height: 65px; font-size: 30px;" href="#" role="button">Read</a>
-  </br>
-    <a class="btn active my-5 border-2 border-dark btn-lg btn-secondary" style="width: 150px; height: 65px; font-size: 30px;" href="{{ url_for('chip.chip')}}" role="button">Input</a>
-  </div>
+  
+
+<div class="buttongroup">
+  <form method="POST">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        {{ form.hidden_tag() }}
+      
+        {{ form.batchME.label(class="form-label") }}
+      
+        {{ form.batchME(class="form-control") }}
+      
+        {{ form.waferME.label(class="form-label") }}
+      
+        {{ form.waferME(class="form-control") }}
+      
+        {{ form.chipME.label(class="form-label") }}
+      
+        {{ form.chipME(class="form-control") }}
+        <div class="col-4 offset-4">
+          <div class="row justify-content-center">
+            {{form.submit(class="btn btn-secondary btn-md my-4") }}
+            <br/>
+          </div>	
+        </div>          
+      </div>	
+    </div>
+  </form>
 </div>
+
 <head> 
   <style>
-    .button_group{
-      position: relative;
-      top: 40%;
-      bottom: 0%;
-      right: 15%;
-      left: 70%; 
-    }
+
     .buttons {
       position: absolute;
       top: 20%;
       bottom: 0%;
-      right: 15%;
-      left: 15%; 
+      right: 30%;
+      left: -0.5%; 
     }
     .everything{
-      left:10%;
+      position: absolute;
+      left:12%;
+      top:20%;
+    }
+    .buttongroup {
+      position: fixed;
+      top: 32%; 
+      bottom: 0%;
+      right: 10%;
+      left: 50%;
     }
   </style>
 </head>

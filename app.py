@@ -6,11 +6,15 @@ from flask_migrate import Migrate
 
 
 
+
 from login.auth import auth_blueprint
 from homepage.home import home_blueprint
 from chipdata.basicinfo import chip_blueprint
 from QA.quality_assurance import QA_blueprint
- 
+from ME_QA.quality_assurance_ME import QA_ME_blueprint
+from ME_QA.basicinfo_ME import chip_ME_blueprint
+
+
 
 
 def create_app():
@@ -30,7 +34,9 @@ def create_app():
    app.register_blueprint(auth_blueprint, url_prefix='/auth')
    app.register_blueprint(home_blueprint, url_prefix='/home')
    app.register_blueprint(chip_blueprint, url_prefix='/chip')
+   app.register_blueprint(chip_ME_blueprint, url_prefix='/chipME')
    app.register_blueprint(QA_blueprint, url_prefix='/QA')
+   app.register_blueprint(QA_ME_blueprint, url_prefix='/QA_ME')
 
 
    @app.route('/')
