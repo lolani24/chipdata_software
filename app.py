@@ -19,7 +19,7 @@ from ME_QA.basicinfo_ME import chip_ME_blueprint
 
 def create_app():
    app = Flask(__name__)
-   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chipchart.db'
+   app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pltcvhrinlycrp:713a98e467e100c4b8f2308e34eef37900d47060f243687ee336760181b51af3@ec2-44-206-214-233.compute-1.amazonaws.com:5432/deh52hi6ntqf4r'
    
    migrate = Migrate(app, db)
    
