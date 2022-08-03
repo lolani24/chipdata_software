@@ -1,1 +1,1 @@
-web: gunicorn create_app:gcats
+web: gunicorn create_app:app
