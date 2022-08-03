@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for
 from extensions import db
 from datetime import datetime
 from flask_migrate import Migrate
+from getenv import os 
 
 
 
@@ -16,11 +17,12 @@ from ME_QA.basicinfo_ME import chip_ME_blueprint
 
 
 
-
 def create_app():
    app = Flask(__name__)
-   app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pltcvhrinlycrp:713a98e467e100c4b8f2308e34eef37900d47060f243687ee336760181b51af3@ec2-44-206-214-233.compute-1.amazonaws.com:5432/deh52hi6ntqf4r'
-   
+   SQL_DSN = os.getenv('POSTGRES_DSN')
+   app.config['SQLALCHEMY_DATABASE_URI'] = 'SQL_DSN'
+ 
+
    migrate = Migrate(app, db)
    
    
