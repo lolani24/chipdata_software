@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for
 from extensions import db
 from datetime import datetime
 from flask_migrate import Migrate
-import os
-from dotenv import load_dotenv
+
+
 
 
 
@@ -16,18 +16,16 @@ from ME_QA.basicinfo_ME import chip_ME_blueprint
 
 
 
+
 def create_app():
    app = Flask(__name__)
-   #load_dotenv()
-   #SQL_DSN = os.getenv('DATABASE_URL')
-   #print(SQL_DSN)
-   app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gepjqyvdoikmyg:3afa73aafc36af5922dee45ca6daaf5468c73c79c1fff777ed4b1056ccf47c24@ec2-52-20-166-21.compute-1.amazonaws.com:5432/d18ca3f57ulaob'
- 
-
+   #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chipchart.db'
+   app.config['SQLALCHEMY_DATABASE_URI'] = ' postgres://gepjqyvdoikmyg:3afa73aafc36af5922dee45ca6daaf5468c73c79c1fff777ed4b1056ccf47c24@ec2-52-20-166-21.compute-1.amazonaws.com:5432/d18ca3f57ulaob'
+   
    migrate = Migrate(app, db)
    
    
-   app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+   #app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
    app.config['SECRET_KEY'] = "zxcvbnm,"
 
    db.init_app(app)
