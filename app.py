@@ -2,9 +2,8 @@ from flask import Flask, render_template, url_for
 from extensions import db
 from datetime import datetime
 from flask_migrate import Migrate
-from getenv import os 
-
-
+import os
+from dotenv import load_dotenv
 
 
 
@@ -19,7 +18,9 @@ from ME_QA.basicinfo_ME import chip_ME_blueprint
 
 def create_app():
    app = Flask(__name__)
-   SQL_DSN = os.getenv('POSTGRES_DSN')
+   load_dotenv()
+   SQL_DSN = os.getenv('DATABASE_URL')
+   print(SQL_DSN)
    app.config['SQLALCHEMY_DATABASE_URI'] = 'SQL_DSN'
  
 
