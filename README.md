@@ -32,3 +32,13 @@ By organizing this data in a centralized, searchable database, GCAT helps resear
 * 📝 Testing and Documentation – Add unit tests and improve the code documentation for better maintainability.
 
 * 🌐 Hosting – Research and implement a more efficient hosting solution, including deployment to a production environment with proper scaling and uptime.
+
+## 🙏🏽 Credits ##
+
+Allison Yuh – Special thanks to Allison for helping design the user interface and ensuring the website was both functional and visually aligned with the project’s needs.
+
+
+
+
+
+
